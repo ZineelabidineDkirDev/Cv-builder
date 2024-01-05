@@ -1,10 +1,11 @@
 import React from 'react'
-import {Carousel, Nav, Button, Row} from 'react-bootstrap';
+import {Carousel, Nav, Button, Row, Form} from 'react-bootstrap';
 import Slider from './Slider';
 import Cards from '../Service/Cards';
 import dataService from '../Service/ServiceData'
 import Content from '../../components/CVbuild/Content';
-
+import CityLoader from '../../components/CityLoader/CityLoader';
+import cityData from '../../components/CityLoader/CityData.json';
 
 const Home = () => {
     const imageSlider1 = 'https://img.freepik.com/premium-photo/soft-colorful-blurred-satin-pattern-vibrant-web-design-graphic-illustration_336343-431.jpg';
@@ -61,6 +62,11 @@ const Home = () => {
 
                 <Row>
                     <Content />
+                    <Form.Select aria-label="Default select example">
+                    {cityData.map((city,id) => (
+                        <option key={id}>{city.ville}</option>
+                    ))}
+                    </Form.Select>
                 </Row>
 
     </>

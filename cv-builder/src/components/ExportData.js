@@ -2,6 +2,7 @@ import Builder from "../pages/Builder/Builder";
 import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
 import Service from "../pages/Service/Service";
+import CityLoader from "./CityLoader/CityLoader";
 import Footer from "./Footer/Footer";
 import CvNavbar from "./Navbar/CvNavbar";
 import Competences from "./Sections/Competences";
@@ -25,7 +26,8 @@ export default {
     Skills,
     Experiences,
     Language,
-    References
+    References,
+    CityLoader
 
 
 }
