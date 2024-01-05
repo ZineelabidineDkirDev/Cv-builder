@@ -2,7 +2,17 @@ import React from 'react'
 
 const ViewCv = () => {
   return (
-    <div>ViewCv</div>
+    <>
+        <Row>
+            <Col>
+                <SideBar />
+            </Col>
+            <Col>
+                <Content />
+            </Col>
+        </Row>
+    
+    </>
   )
 }
 
