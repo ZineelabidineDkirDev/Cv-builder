@@ -1,8 +1,11 @@
 import React from 'react'
+import {Content} from '../../components/CVbuild/Content'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <>
+      <Content />
+    </>
   )
 }
 

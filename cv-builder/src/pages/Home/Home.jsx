@@ -3,6 +3,8 @@ import {Carousel, Nav, Button, Row} from 'react-bootstrap';
 import Slider from './Slider';
 import Cards from '../Service/Cards';
 import dataService from '../Service/ServiceData'
+import Content from '../../components/CVbuild/Content';
+
 
 const Home = () => {
     const imageSlider1 = 'https://img.freepik.com/premium-photo/soft-colorful-blurred-satin-pattern-vibrant-web-design-graphic-illustration_336343-431.jpg';
@@ -55,6 +57,10 @@ const Home = () => {
                         dataService.map((card,id)=>(
                         <Cards key={id} title={card.title} desc={card.desc} link={card.link} image={card.image}/>
                     ))}
+                </Row>
+
+                <Row>
+                    <Content />
                 </Row>
 
     </>
