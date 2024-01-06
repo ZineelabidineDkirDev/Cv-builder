@@ -60,14 +60,7 @@ const Home = () => {
                     ))}
                 </Row>
 
-                <Row>
-                    <Content />
-                    {/* <Form.Select aria-label="Default select example">
-                    {cityData.map((city,id) => (
-                        <option key={id}>{city.ville}</option>
-                    ))}
-                    </Form.Select> */}
-                </Row>
+             
 
     </>
   )
