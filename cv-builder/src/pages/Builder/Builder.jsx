@@ -17,10 +17,10 @@ const Builder = () => {
       <Tab eventKey="profile" className='model-link' title="Profile Information">
         <cv.Profiles />
       </Tab>
-      <Tab eventKey="education" className='model-link' title="Formation/Education" disabled>
+      <Tab eventKey="education" className='model-link' title="Formation/Education">
         <cv.Educations />
       </Tab>
-      <Tab eventKey="experiences" className='model-link' title="Experiences" disabled>
+      <Tab eventKey="experiences" className='model-link' title="Experiences">
         <cv.Experiences />
       </Tab>
       <Tab eventKey="skills" className='model-link' title="Skills" >
