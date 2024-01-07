@@ -14,10 +14,10 @@ const Builder = () => {
       className="mb-3 nav nav-tabs"
       justify
     >
-      <Tab eventKey="profile" className='model-link' title="Profile Information">
+      <Tab  eventKey="profile" className='model-link' title="Profile Information">
         <cv.Profiles />
       </Tab>
-      <Tab eventKey="education" className='model-link' title="Formation/Education" disabled>
+      <Tab eventKey="education" className='model-link' title="Formation/Education" >
         <cv.Educations />
       </Tab>
       <Tab eventKey="experiences" className='model-link' title="Experiences" disabled>
