@@ -19,7 +19,7 @@ function App() {
         <Route path="/contact" element={<cv.Contact/>}/>
         <Route path="/builder" element={<cv.Builder/>}/>
      </Routes>
-
+   
      
     </>
     )
