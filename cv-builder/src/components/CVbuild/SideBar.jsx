@@ -11,6 +11,7 @@ const SideBar = () => {
     const socialink = [
         'fb.com','github.com','behance.com'
     ]
+    
 
   return (
         <Card className="sidebar-card">

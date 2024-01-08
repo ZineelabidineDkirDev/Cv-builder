@@ -2,6 +2,7 @@ import Builder from "../pages/Builder/Builder";
 import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
 import Service from "../pages/Service/Service";
+import Template from "../pages/Template/Template";
 import CityLoader from "./CityLoader/CityLoader";
 import Footer from "./Footer/Footer";
 import CvNavbar from "./Navbar/CvNavbar";
@@ -27,7 +28,8 @@ export default {
     Experiences,
     Language,
     References,
-    CityLoader
+    CityLoader,
+    Template
 
 
 }

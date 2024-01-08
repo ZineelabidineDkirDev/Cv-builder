@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const CvNavbar = () => {
   return (
-    <Navbar expand="lg" className="navbar bg-color-style" data-bs-theme="dark" >
+    <Navbar expand="lg" className="navbar bg-color-style fixed-top" data-bs-theme="dark" >
       <Container className='content'>
         <Navbar.Brand href="/">CV Builder </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -15,6 +15,7 @@ const CvNavbar = () => {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/service">Service</Nav.Link>
+            <Nav.Link href="/template">Template</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
           <Nav className='me'>
