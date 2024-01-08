@@ -148,18 +148,18 @@ const Educations = () => {
         <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleClick}>
           Next Step
         </Button>
-        <Button  className="button-transition" variant="info" style={{marginTop:'20px', position:'absolute' , right:'200px' }} onClick={handleAddEducation}  >
+        <Button  className="button-transition btn btn-outline-dark border-dark rounded-5" variant="outline" style={{marginTop:'20px', position:'absolute' , right:'200px' }} onClick={handleAddEducation}  >
         <FaPlus style={{marginRight:'5px'}} />
           Add Another Education
         </Button>
 
         {showGoToFirstButton && (
         <Button
-        className="button-transition"
-          variant="info"
+        className="button-transition btn btn-outline-dark border-dark rounded-5"
+          variant="outline"
           style={{ marginTop: '20px', position: 'absolute', right: '450px' }}
           onClick={handleGoToFirstEducation} >
-
+          <FaTrash style={{ marginRight: "5px" }} />
           Back
         </Button>
         ) }
@@ -171,3 +171,5 @@ const Educations = () => {
 
 
 export default Educations
+
+
