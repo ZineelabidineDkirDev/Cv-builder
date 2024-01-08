@@ -10,7 +10,7 @@ const filee = '../../data/ProfilsData.json';
 
 
 const Profiles = () => {
-  const [src, setSrc] = useState('');
+  // const [src, setSrc] = useState('');
   const [formData, setFormData] = useState({
     nom: '',
     prenom: '',
@@ -21,14 +21,22 @@ const Profiles = () => {
     city: '',
     codePostall: '',
     imgProfile: '',
+    description:'',
   });
 
+  
   function handleChange(e) {
     const { name, value } = e.target;
+    let errorMessage="";
+    if(name==="nom"){
+      errorMessage= value.length<5? 'the name modt containe more than five charcters':'';
+    }
+  
     setFormData((prevData) => ({
       ...prevData,
       [name]: value
     }));
+
   };
 
   const handleFileChange = (file) => {
@@ -110,6 +118,11 @@ const Profiles = () => {
       <div className="col-md-4">
         <label htmlFor="inputCity" className="form-label">Zip :</label>
         <input type="text" className="form-control" id="zip" name='codePostall' value={formData.codePostall} onChange={handleChange} />
+      </div>
+
+      <div className="col-12">
+        <label htmlFor="description" className="form-label">Déscription :</label>
+        <textarea className="form-control" id="description" name='description' value={formData.description} onChange={handleChange} ></textarea>
       </div>
 
       {/* {src && <img src={src} alt="" />} */}
