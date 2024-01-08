@@ -69,8 +69,7 @@ const Content = () => {
    
         </Col>
         </Row>
-            <h3 className='title-cv'>Educations & degrees</h3>
-        
+            <h3 className='title-cv '>Educations & degrees</h3>
         
         {
             datacv.map((education,id)=>(
@@ -88,9 +87,9 @@ const Content = () => {
                       <Card>
                         
                         <Card.Body>
-                            <blockquote className="blockquote mb-0">
-                            <h3>{education.degree}</h3>
-                            <p>
+                            <div className="blockquote mb-0">
+                            <h3 className='h5'>{education.degree}</h3>
+                            <p className='small'>
                                 {' '}
                                 {education.description}
                                 {' '}
@@ -98,7 +97,7 @@ const Content = () => {
                             <span className="blockquote-footer">
                                 {education.school} <cite title="Source Title">| {education.city}</cite>
                             </span>
-                            </blockquote>
+                            </div>
                         </Card.Body>
                         </Card>
                     </Col>

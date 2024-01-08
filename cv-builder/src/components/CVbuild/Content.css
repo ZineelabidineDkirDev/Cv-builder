@@ -67,6 +67,8 @@
 
   .model-content .title-cv{
     padding:10px 10px;
+    font-weight:400;
+    font-size:32px
   }
 
   .model-content .title-cv::after{
@@ -111,7 +113,6 @@
   
   .card-model {
     flex: 1;
-    margin:20px;
   }
   
   .card {
@@ -220,3 +221,13 @@
       }
   }
   
+
+  .sidebar-card .clicked {
+    background-color: #f0f0f0 !important; /* Change to your desired background color */
+    color: #333; /* Change to your desired font color */
+  }
+  
+  .content-card.clicked {
+    background-color: #f0f0f0; /* Change to your desired background color */
+    color: #333; /* Change to your desired font color */
+  }
