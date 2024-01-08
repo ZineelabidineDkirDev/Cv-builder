@@ -1,10 +1,10 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import './Cv.css'
 
 
 
 
-function ProfileImageUpload({onFileChange} ) {
+function ProfileImageUpload({ onFileChange }) {
   // const [imgfile, setUploadImagefile] = useState();
   const [preview, setPreview] = useState(null);
   const handleFileChange = (e) => {
@@ -12,15 +12,19 @@ function ProfileImageUpload({onFileChange} ) {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPreview(reader.result);
-        onFileChange(preview);
+        const img = reader.result;
+        setPreview(img);
+        onFileChange(img);
+
+
       };
       reader.readAsDataURL(file);
     }
+
   };
   return <>
     <div className="profile-container">
-      <input type="file" className="profile-input" id="profile-input"  name='imgProfile'  onChange={handleFileChange} />
+      <input type="file" className="profile-input" id="profile-input" accept='imges/*' name='imgProfile' onChange={handleFileChange} />
       <label htmlFor="profile-input" className="d-flex align-items-center justify-content-center bg-light">
         {preview ? (
           <img src={preview} alt="Profile Preview" className="profile-icon" />
