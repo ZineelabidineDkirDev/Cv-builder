@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SideBar from './SideBar';
 import Content from './Content';
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -8,10 +8,19 @@ import HeadingStyle from '../../extensions/HeadingStyle';
 const ViewCv = () => {
   const [isButtonClicked, setButtonClicked] = useState(false);
 
-  const handleButtonClick = () => {
-    setButtonClicked(!isButtonClicked);
-  };
+  // const handleButtonClick = () => {
+  //   setButtonClicked(!isButtonClicked);
+  // };
 
+  const [DataJsonProfile,setDataJsonProfile] = useState([]); 
+
+  useEffect(()=>{
+    const storeProfileData = JSON.parse(localStorage.getItem("profileData")) || [];
+    setDataJsonProfile(storeProfileData);
+    console.log(storeProfileData);
+  },[]);
+
+  
   return (
     <div>
     <HeadingStyle title="View CV" />

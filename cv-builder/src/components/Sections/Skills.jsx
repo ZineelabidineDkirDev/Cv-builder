@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, InputGroup } from 'react-bootstrap';
+import { FaPlus, FaTimes } from 'react-icons/fa';
 
 const Skills = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -74,7 +75,64 @@ const Skills = () => {
   return (
     <div>
       <Form>
-        {/* ... (Rest of the form components remain unchanged) */}
+        <Form.Group className="mb-3">
+          <Form.Label>Select your skills:</Form.Label>
+          <Form.Control
+            as="select"
+            multiple
+            value={selectedSkills}
+            onChange={handleSelectChange}
+          >
+            {allSkills.map((skill) => (
+              <option key={skill} value={skill}>
+                {skill}
+              </option>
+            ))}
+          </Form.Control>
+        </Form.Group>
+
+        {/* Display selected skills above the list */}
+        {displayedSkills.length > 0 && (
+          <div className="mb-3">
+            <strong>Selected Skills:</strong>
+            <ul>
+              {displayedSkills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <Form.Group className="mb-3">
+          <Form.Label>Add a new skill:</Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="text"
+              value={newSkill}
+              onChange={handleNewSkillChange}
+              placeholder="New skill"
+            />
+            <Button variant="outline-dark" onClick={handleAddSkill} className="ms-2">
+              <FaPlus />
+            </Button>
+          </InputGroup>
+        </Form.Group>
+
+        {/* Display selected skills with remove button */}
+        <div className="mt-4">
+          {displayedSkills.map((skill, index) => (
+            <div key={index} className="d-flex align-items-center mb-2">
+              <span>{skill}</span>
+              <Button
+                variant="outline-dark"
+                onClick={() => handleRemoveSkill(index)}
+                className="ms-2"
+              >
+                <FaTimes />
+              </Button>
+            </div>
+          ))}
+        </div>
 
         {/* Button to add selected skills */}
         <Button

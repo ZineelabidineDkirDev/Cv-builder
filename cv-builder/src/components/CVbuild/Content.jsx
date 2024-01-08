@@ -1,62 +1,30 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import './Content.css'
 import Rating from '../Rating'
 import Cards from '../../pages/Service/Cards'
 
 const Content = () => {
-    const datacv =[
-        {
-            degree:'IT & Artificial intelligence',
-            start_date:'22-03-2022',
-            end_date:'12-04-2022',
-            description :'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante',
-            school:'UIR',
-            city:'Rabat'
 
-        },
-        {
-            degree:'IT  Managment',
-            start_date:'22-03-2022',
-            end_date:'12-04-2023',
-            description :'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante',
-            school:'Ensa',
-            city:'Salé'
-        },
-        {
-            degree:'IT  AWS Cloud computing degree',
-            start_date:'22-03-2022',
-            end_date:'12-04-2023',
-            description :'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante',
-            school:'Ensa',
-            city:'Salé'
-        }
-    ];
+    //Experiences 
 
-    const expcv =[
-        {
-            JobTitle:'IT Business intelligence',
-            start_date:'22-03-2022',
-            end_date:'12-04-2022',
-            description :'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante',
-            Joblocation:'ISMAGI',
-            city:'Rabat',
-            technology:[
-                'dotnet','javsacript','java '
-            ]
-        }, {
-            JobTitle:'IT Business intelligence',
-            start_date:'22-03-2022',
-            end_date:'12-04-2022',
-            description :'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante',
-            Joblocation:'ISMAGI',
-            city:'Rabat',
-            technology:[
-                'dotnet','wp',
-            ]
-        },
-        
-    ];
+    const [expData, setExperienceData] = useState([]);
+
+    useEffect(() => {
+      const storeExpData = JSON.parse(localStorage.getItem("experienceData")) || [];
+      setExperienceData([storeExpData]);
+      console.log("Experience Data", storeExpData);
+    }, []);
+  
+    // Check if profileData is an array before using map
+    if (!Array.isArray(expData)) {
+      console.error("Experience data is not an array:", expData);
+      return null; 
+    }
+
+    console.log(expData[0]);
+    
+  
   return (
     <Container fluid="lg" className="justify-content-md-center model-content">
         <Row>
@@ -68,14 +36,14 @@ const Content = () => {
         </div>
    
         </Col>
+
         </Row>
             <h3 className='title-cv '>Educations & degrees</h3>
         
-        {
-            datacv.map((education,id)=>(
-        <Row key={id}>
+        
+        <Row>
             <Col>
-                <Row >
+                {/* <Row >
                     <Col className='card-model-content' >
 
                        <p>{education.start_date}</p> 
@@ -101,34 +69,33 @@ const Content = () => {
                         </Card.Body>
                         </Card>
                     </Col>
-                </Row>
+                </Row> */}
             </Col>
         </Row>
-        ))}
+      
         <br />
         
          <h3 className='title-cv'>Professional Experiences</h3>
          <Row className='card-flex'>
-         {
-            expcv.map((exp,id)=>
-            (
+       {expData[0].map((exp,id)=>(
+           
             <Col key={id} className='model-exp'>
                 <Card className='card-model-exp'>
                       <Card.Body>
                             <blockquote className="blockquote-exp mb-0">
                             <h3>{exp.JobTitle}</h3>
                         <Card.Title>
-                            <p>{exp.start_date}</p> 
+                            <p>{exp.startDate}</p> 
                             <span className='hr-model'>-</span>
-                            <p>{exp.end_date}</p>
+                            <p>{exp.endDate}</p>
                         </Card.Title>
                             <p>
                                 {' '}
-                                {exp.description}
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante
                                 {' '}
                             </p>
                             <span className="blockquote-footer">
-                                {exp.Joblocation} <cite title="Source Title">| {exp.city}</cite>
+                                {exp.companyName} <cite title="Source Title">| {exp.address}</cite>
                             </span>
                             </blockquote>
                         </Card.Body>
@@ -137,7 +104,6 @@ const Content = () => {
                         <Card.Footer>
                             <span className='tag-content'>
                                 
-                                    {exp.technology.join(' / ')}
                                 
                             </span>
                         </Card.Footer>
