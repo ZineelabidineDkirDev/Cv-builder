@@ -16,12 +16,12 @@ function App() {
      <Routes>
         <Route path="/" element={<cv.Home/>}/>
         <Route path="/service" element={<cv.Service/>}/>
-        <Route path="/template" element={<cv.Template/>}/>
+        {/* <Route path="/template" element={<cv.Template/>}/> */}
         <Route path="/contact" element={<cv.Contact/>}/>
         <Route path="/builder" element={<cv.Builder/>}/>
      </Routes>
    
-     
+     <cv.Footer/>
     </>
     )
 }
