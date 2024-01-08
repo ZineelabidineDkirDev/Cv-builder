@@ -5,8 +5,8 @@ import './Builder.css'
 
 const Builder = () => {
   return (
-   <Row className='container-fluid model-builder'>
-    <h1 className='mb-5'>CV Builder</h1>
+   <Row className='container-fluid model-builder mt-5'>
+    <HeadingStyle title="Builder your CV" />
     <Col>
     <Tabs
       defaultActiveKey="profile"
@@ -16,12 +16,8 @@ const Builder = () => {
     >
       <Tab  eventKey="profile" className='model-link' title="Profile Information">
         <cv.Profiles />
-      </Tab>
-<<<<<<< HEAD
-      <Tab eventKey="education" className='model-link' title="Formation/Education">
-=======
+      </Tab>        
       <Tab eventKey="education" className='model-link' title="Formation/Education" >
->>>>>>> ABdennour
         <cv.Educations />
       </Tab>
       <Tab eventKey="experiences" className='model-link' title="Experiences">

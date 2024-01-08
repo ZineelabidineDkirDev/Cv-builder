@@ -1,6 +1,6 @@
 import React from 'react'
 import {Row,Form, Button , Col } from 'react-bootstrap'
-import { FaPhoneAlt, FaHome , FaPlus , FaMinus , FaSchool , FaCity , FaCalendar , FaBook } from "react-icons/fa";
+import { FaPhoneAlt, FaHome , FaPlus , FaMinus , FaSchool , FaCity , FaCalendar , FaBook, FaFileArchive } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -104,7 +104,7 @@ const Educations = () => {
             </Row>
           </Form.Group>
           <Form.Group controlId={`description-${index}`}  style={{marginBlockEnd:'10px'}}>
-            <Form.Label>Description : </Form.Label>
+            <Form.Label><FaFileArchive /> Description : </Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
@@ -115,7 +115,7 @@ const Educations = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId={`etablissment-${index}`}>
-            <Form.Label><FaSchool style={{paddingRight:'5px'}}  /> Etablissment:</Form.Label>
+            <Form.Label><FaSchool/> Etablissment:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Etablissment"
@@ -125,7 +125,7 @@ const Educations = () => {
             />
           </Form.Group>
           <Form.Group controlId={`city-${index}`}>
-  <Form.Label><FaCity style={{paddingRight:'5px'}} />City:</Form.Label>
+  <Form.Label><FaCity/> City:</Form.Label>
   <Form.Select
     name="City"
     value={education.City}
@@ -148,15 +148,13 @@ const Educations = () => {
         <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleClick}>
           Next Step
         </Button>
-        <Button  className="button-transition" variant="info" style={{marginTop:'20px', position:'absolute' , right:'200px' }} onClick={handleAddEducation}  >
+        <Button  variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" style={{marginTop:'20px', position:'absolute' , right:'200px' }} onClick={handleAddEducation}  >
         <FaPlus style={{marginRight:'5px'}} />
           Add Another Education
         </Button>
 
         {showGoToFirstButton && (
-        <Button
-        className="button-transition"
-          variant="info"
+        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"
           style={{ marginTop: '20px', position: 'absolute', right: '450px' }}
           onClick={handleGoToFirstEducation} >
 
