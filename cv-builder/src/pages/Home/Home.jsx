@@ -3,9 +3,7 @@ import {Carousel, Nav, Button, Row, Form} from 'react-bootstrap';
 import Slider from './Slider';
 import Cards from '../Service/Cards';
 import dataService from '../Service/ServiceData'
-import Content from '../../components/CVbuild/Content';
-import CityLoader from '../../components/CityLoader/CityLoader';
-import cityData from '../../components/CityLoader/CityData.json';
+import Service from '../Service/Service';
 
 const Home = () => {
     const imageSlider1 = 'https://img.freepik.com/premium-photo/soft-colorful-blurred-satin-pattern-vibrant-web-design-graphic-illustration_336343-431.jpg';
@@ -53,16 +51,10 @@ const Home = () => {
                 </Carousel.Item>
                 </Carousel>
 
-                <Row xl={'11'} className='m-5 w-100 d-flex'>
-                    {
-                        dataService.map((card,id)=>(
-                        <Cards key={id} title={card.title} desc={card.desc} link={card.link} image={card.image}/>
-                    ))}
-                </Row>
+                <Service />
 
              
-
-    </>
+</>
   )
 }
 

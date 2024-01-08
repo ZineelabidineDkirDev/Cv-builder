@@ -374,9 +374,20 @@ const Experiences = () => {
             <FaTrash style={{ marginRight: "5px" }} />
             Back
           </Button>
+<<<<<<< HEAD
         )}
       </Form.Group>
     </Form>
+=======
+          <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2 mx-2">
+            Next Step
+          </Button>
+
+        
+        </Form.Group>
+      </Form>
+    
+>>>>>>> origin/Zayn
   );
 };
 

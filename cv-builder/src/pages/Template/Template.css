@@ -1,0 +1,97 @@
+/* Template.css */
+
+.container-fluid {
+  padding: 20px;
+  margin:2px;
+
+}
+
+.sidebar-temp {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.sidebar-temp img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.sidebar-temp h1 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.sidebar-temp h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.sidebar-temp hr {
+  border-color: #fff;
+}
+
+.main-content {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.main-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.main-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.main-content hr {
+  margin: 30px 0;
+}
+
+.main-content .row {
+  margin-bottom: 30px;
+}
+
+.main-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.testimonial {
+  font-style: italic;
+  color: #6c757d;
+}
+
+.clients img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.button-download {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.button-download:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
