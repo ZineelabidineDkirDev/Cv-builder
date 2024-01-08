@@ -361,7 +361,7 @@ const Experiences = () => {
         <Button
           className="button-transition btn btn-outline-dark border-dark rounded-5"
           variant="outline"
-          style={{ marginTop: "20px", position: "absolute", right: "200px" }}
+          style={{ marginTop: "20px",marginLeft:'45%', right: "200px" }}
           onClick={handleNewData}
         >
           <FaPlus style={{ marginRight: "5px" }} />

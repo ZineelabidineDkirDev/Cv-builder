@@ -148,7 +148,8 @@ const Educations = () => {
         <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleClick}>
           Next Step
         </Button>
-        <Button  className="button-transition" variant="outline-dark" style={{marginTop:'20px',marginLeft:'45%' , right:'200px' }} onClick={handleAddEducation}  >
+        <Button  className="button-transitio rounded-5" variant="outline-dark"
+         style={{marginTop:'20px',marginLeft:'45%' , right:'200px' }} onClick={handleAddEducation}  >
         <FaPlus style={{marginRight:'5px'}} />
           Add Another Education
         </Button>
