@@ -351,19 +351,17 @@ const Experiences = () => {
       ))}
 
       <Form.Group>
-        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" 
-         style={{marginTop:'20px'}}>
+        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  style={{marginTop:'20px'}}>
           Previous Step
         </Button>
-        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" 
-         style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleClick}>
+        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleClick}>
           Next Step
         </Button>
 
         <Button
           className="button-transition btn btn-outline-dark border-dark rounded-5"
           variant="outline"
-          style={{ marginTop: "20px", marginLeft:'45%' }}
+          style={{ marginTop: "20px", position: "absolute", right: "200px" }}
           onClick={handleNewData}
         >
           <FaPlus style={{ marginRight: "5px" }} />
