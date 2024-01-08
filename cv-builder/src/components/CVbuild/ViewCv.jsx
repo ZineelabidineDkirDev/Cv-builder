@@ -12,13 +12,13 @@ const ViewCv = () => {
   //   setButtonClicked(!isButtonClicked);
   // };
 
-  const [DataJsonProfile,setDataJsonProfile] = useState([]); 
+  // const [DataJsonProfile,setDataJsonProfile] = useState([]); 
 
-  useEffect(()=>{
-    const storeProfileData = JSON.parse(localStorage.getItem("profileData")) || [];
-    setDataJsonProfile(storeProfileData);
-    console.log(storeProfileData);
-  },[]);
+  // useEffect(()=>{
+  //   const storeProfileData = JSON.parse(localStorage.getItem("profileData")) || [];
+  //   setDataJsonProfile(storeProfileData);
+  //   console.log(storeProfileData);
+  // },[]);
 
   
   return (
