@@ -22,6 +22,7 @@ const Profiles = () => {
     codePostall: '',
     imgProfile: '',
     description:'',
+    age:''
   });
 
   
@@ -83,11 +84,13 @@ const Profiles = () => {
                 <input type="text" className="form-control" id="nom" name="nom" value={formData.nom}
                   onChange={handleChange} />
               </div>
+              <br></br>
               <div className="col-lg-6">
                 <label htmlFor="prenom" className="form-label">Prénom :</label>
                 <input type="text" className="form-control" id="prenom" name='prenom' value={formData.prenom} onChange={handleChange} />
               </div>
             </div>
+            <br></br>
             <div className="row">
               <div className="col-lg-6">
                 <label htmlFor="email" className="form-label">Email :</label>
@@ -97,7 +100,15 @@ const Profiles = () => {
                 <label htmlFor="phone" className="form-label">Phone :</label>
                 <input type="number" className="form-control" id="phone" name='phone' value={formData.phone} onChange={handleChange} />
               </div>
+              </div>
+              <br></br>
+            <div className="row">
+              <div className="col-lg-12">
+                <label htmlFor="age" className="form-label">Date naissance :</label>
+                <input type="date" className="form-control" id="age" name='age' value={formData.daten} onChange={handleChange} />
+              </div>
             </div>
+            
           </div>
         </div>
       </div>

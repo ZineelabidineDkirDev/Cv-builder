@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import {Card,Image,Badge} from 'react-bootstrap'
-import { AiFillChrome, AiFillHome, AiFillMail,AiFillPhone, AiOutlineHome } from 'react-icons/ai'
+import { AiFillBuild, AiFillCaretDown, AiFillChrome, AiFillFacebook, AiFillGithub, AiFillHome, AiFillLinkedin,
+   AiFillMail,AiFillPhone, AiOutlineBuild, AiOutlineCarryOut, AiOutlineFlag, AiOutlineHome, AiOutlineMail, 
+   AiOutlinePhone} from 'react-icons/ai'
 import Language from '../Sections/Language';
 const SideBar = () => {
     // const profil = "https://viberatecdn.blob.core.windows.net/entity/artist/moha-k-WinxY"
@@ -64,17 +66,17 @@ const SideBar = () => {
         
         {profileData.map((profil, id) => (
           <div className='profiledata'>
-      <Image key={id} src={profil.imgProfile} alt="Profile" roundedCircle className="profile-image" />
+      <Image key={id} src={profil.imgProfile} alt="Profile" roundedCircle className="profile-image flex justify-content-center" />
         <Card.Title>
           <h3 className='text-center'>{profil.nom} <br /><b>{profil.prenom}</b></h3>
           <br></br>
           <p className='bg-light w-[100%] p-3 '><b>Contact Information</b></p>
         </Card.Title>
         <Card.Text className='sidebar-info'>
-          <p><AiFillMail/> {profil.email}</p>
-          <p><AiFillPhone/> {profil.phone}</p>
-          <p><AiFillHome/>  {profil.adress}</p>
-          <p><AiOutlineHome/>  {profil.city}, <span>{profil.codePostall}</span></p>
+          <p><AiOutlineMail style={{fontSize:'22px'}}/> {profil.email}</p>
+          <p><AiOutlinePhone style={{fontSize:'22px'}}/> {profil.phone}</p>
+          <p><AiOutlineHome style={{fontSize:'22px'}}/>  {profil.adress} {profil.codePostall},{profil.city}</p>
+          <p><AiOutlineCarryOut style={{fontSize:'22px'}}/>  {profil.daten}</p>
         </Card.Text>
         </div>
         ))}
@@ -88,11 +90,13 @@ const SideBar = () => {
         <Card.Text className='sidebar-info'>
          {skillsData.map((skill, index) => ( 
             <Badge key={index} className="skill-badge">
-              {skill.displayedSkills}
+              <AiFillBuild/>{skill.displayedSkills}
             </Badge>
           ))}
         </Card.Text>
         </div>
+
+
         <Card.Title>
           <p className='bg-light w-[100%] p-3 '><b>Languages</b></p>
         </Card.Title>
@@ -106,7 +110,7 @@ const SideBar = () => {
                 ))} */}
                 { languageData.map((lang,index)=>(
                   <p>
-                    {lang.availableLanguages}
+                  <AiOutlineFlag style={{fontSize:'22px'}}/>  {lang.availableLanguages}
                   </p>
                 ))}
               </div>
@@ -114,12 +118,15 @@ const SideBar = () => {
           {/* ))} */}
         </Card.Text>
         <Card.Title>
+          
           <p className='bg-light w-[100%] p-3 '><b>Social Link</b></p>
         </Card.Title>
         <Card.Text className='sidebar-info'>
         {/* {socialink.map((sl, index) => ( */}
             <div className="links">
-              <span><b>facebook</b></span>
+              <p><AiFillFacebook style={{fontSize:'22px'}}/> Facebook</p>
+              <p><AiFillLinkedin style={{fontSize:'22px'}}/> LinkedIn</p>
+              <p><AiFillGithub style={{fontSize:'22px'}}/> Github</p>
             </div>
           {/* ))} */}
         </Card.Text>
