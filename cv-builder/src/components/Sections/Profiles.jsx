@@ -40,6 +40,7 @@ const Profiles = () => {
 
   const handleSubmit = () => {
     const jsonData = JSON.stringify(formData);
+    // console.log(jsonData);
     localStorage.setItem('profileData', jsonData);
     console.log('JSON Data:', jsonData);
     // saveJson(filee,formData);
