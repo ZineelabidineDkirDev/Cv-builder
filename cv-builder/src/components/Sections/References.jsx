@@ -68,7 +68,35 @@ const References = () => {
   return (
     <div>
       <Form>
-        {/* ... (Rest of the form components remain unchanged) */}
+        <Form.Group className="mb-3">
+          <Form.Label>LinkedIn :</Form.Label>
+          <Form.Control
+            type="url"
+            placeholder="https://www.linkedin.com/in/yourprofile"
+            value={linkedIn}
+            onChange={(e) => setLinkedIn(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Twitter :</Form.Label>
+          <Form.Control
+            type="url"
+            placeholder="https://twitter.com/yourprofile"
+            value={twitter}
+            onChange={(e) => setTwitter(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>GitHub :</Form.Label>
+          <Form.Control
+            type="url"
+            placeholder="https://github.com/yourprofile"
+            value={github}
+            onChange={(e) => setGitHub(e.target.value)}
+          />
+        </Form.Group>
 
         {/* Button to add reference */}
         <Button variant="outline-dark" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" onClick={handleAddReference}>

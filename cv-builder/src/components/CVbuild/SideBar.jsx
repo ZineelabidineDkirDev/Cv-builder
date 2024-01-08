@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {Card,Image,Badge} from 'react-bootstrap'
 import { AiFillChrome, AiFillHome, AiFillMail,AiFillPhone, AiOutlineHome } from 'react-icons/ai'
+import Language from '../Sections/Language';
 const SideBar = () => {
     // const profil = "https://viberatecdn.blob.core.windows.net/entity/artist/moha-k-WinxY"
     // const skills = ['React', 'JavaScript', 'HTML', 'CSS', 'Bootstrap'];
@@ -21,37 +22,40 @@ const SideBar = () => {
       console.log("Profile Data", storeProfileData);
     }, []);
   
-    // Check if profileData is an array before using map
     if (!Array.isArray(profileData)) {
-      console.error("Profile data is not an array:", profileData);
+      console.error("Profile Data:", profileData);
       return null; // or handle the error in some other way
     }
 
     //Skills 
-
-    const [experienceData, setExperienceData] = useState([]);
+    const [skillsData, setSkillsData] = useState([]);
 
     useEffect(() => {
-      const storeExpData = JSON.parse(localStorage.getItem("experienceData")) || [];
-      setExperienceData([storeExpData]);
-      console.log("Experience Data", storeExpData);
+      const storeSkillData = JSON.parse(localStorage.getItem("skills_data")) || [];
+      setProfileData([storeSkillData]);
+      console.log("Skill Data", storeSkillData);
     }, []);
-  
-    // Check if profileData is an array before using map
-    if (!Array.isArray(experienceData)) {
-      console.error("Experience data is not an array:", experienceData);
-      return null; 
+    
+    if (!Array.isArray(skillsData)) {
+      console.error("Skill Data:", skillsData);
+      return null; // or handle the error in some other way
     }
 
-  // {"nom":"DKIR",
-    // "prenom":"ZINE El ABIDINE",
-    // "email":"zainmawada@gmail.com",
-    // "phone":"0638965033",
-    // "adress":"Qamra du Nord C.Y.M. RABAT",
-    // "country":"Maroc",
-    // "city":"RABAT",
-    // "codePostall":"10120",
-    // "imgProfile":""}
+   //Language 
+   const [languageData, setLanguageData] = useState([]);
+
+   useEffect(() => {
+     const storeLanguageData = JSON.parse(localStorage.getItem("language_data")) || [];
+     setProfileData([storeLanguageData]);
+     console.log("Skill Data", storeLanguageData);
+   }, []);
+   
+   if (!Array.isArray(languageData)) {
+     console.error("Skill Data:", languageData);
+     return null; // or handle the error in some other way
+   }
+
+ 
   return (
         <Card className="sidebar-card">
           
@@ -82,11 +86,11 @@ const SideBar = () => {
           <p className='bg-light w-[100%] p-3 '><b>Skills</b></p>
         </Card.Title>
         <Card.Text className='sidebar-info'>
-        {/* {skills.map((skill, index) => ( */}
-            <Badge  className="skill-badge">
-              Php
+         {skillsData.map((skill, index) => ( 
+            <Badge key={index} className="skill-badge">
+              {skill.displayedSkills}
             </Badge>
-          {/*  */}
+          ))}
         </Card.Text>
         </div>
         <Card.Title>
@@ -100,6 +104,11 @@ const SideBar = () => {
                 {/* {Array.from({ length: 5 }, (_, i) => (
                   <span key={i} className={`star ${i < language.level ? 'filled' : ''}`}></span>
                 ))} */}
+                { languageData.map((lang,index)=>(
+                  <p>
+                    {lang.availableLanguages}
+                  </p>
+                ))}
               </div>
             </div>
           {/* ))} */}

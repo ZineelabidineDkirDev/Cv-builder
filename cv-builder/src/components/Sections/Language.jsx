@@ -76,7 +76,64 @@ const Language = () => {
   return (
     <div>
       <Form>
-        {/* ... (Rest of the form components remain unchanged) */}
+        <Form.Group className="mb-3">
+          <Form.Label>Select your languages:</Form.Label>
+          <Form.Control
+            as="select"
+            multiple
+            value={selectedLanguages}
+            onChange={handleSelectChange}
+          >
+            {availableLanguages.map((language) => (
+              <option key={language} value={language}>
+                {language}
+              </option>
+            ))}
+          </Form.Control>
+        </Form.Group>
+
+        {/* Display selected languages above the list */}
+        {displayedLanguages.length > 0 && (
+          <div className="mb-3">
+            <strong>Selected Languages:</strong>
+            <ul>
+              {displayedLanguages.map((language, index) => (
+                <li key={index}>{language}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <Form.Group className="mb-3">
+          <Form.Label>Add a new language:</Form.Label>
+          <div className="d-flex">
+            <Form.Control
+              type="text"
+              value={newLanguage}
+              onChange={handleNewLanguageChange}
+              placeholder="New language"
+            />
+            <Button variant="outline-dark" onClick={handleAddLanguage} className="ms-2">
+              <FaPlus />
+            </Button>
+          </div>
+        </Form.Group>
+
+        {/* Display selected languages */}
+        <div className="mt-4">
+          {displayedLanguages.map((language, index) => (
+            <div key={index} className="d-flex align-items-center mb-2">
+              <span>{language}</span>
+              <Button
+                variant="outline-dark"
+                onClick={() => handleRemoveLanguage(index)}
+                className="ms-2"
+              >
+                <FaTimes />
+              </Button>
+            </div>
+          ))}
+        </div>
 
         {/* Button to add selected languages */}
         <Button

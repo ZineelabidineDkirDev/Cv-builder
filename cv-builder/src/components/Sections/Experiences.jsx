@@ -12,20 +12,20 @@ import {
   FaPlus,
 } from "react-icons/fa";
 import "./Experience.css";
+import cityData from '../../CityLoader/CityData.json';
 
 const Experiences = () => {
   const [experienceData, setExperienceData] = useState([
     {
       jobTitle: [''],
       companyName: [''],
-      address: [''],
+      city: [''],
+      description: [''],
       startDate: [''],
       endDate: [''],
-      skillsUtilized: [''],
       experienceType: [''],
       certifications: [''],
       toolsTechnologies: [''],
-      projectLinks: [''],
       fadeIn: true,
     },
   ]);
@@ -43,7 +43,7 @@ const Experiences = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-  
+
     try {
       const hasNonEmptyData = experienceData.every((item) =>
         Object.values(item).every(
@@ -83,14 +83,13 @@ const Experiences = () => {
     const newData = {
       jobTitle: [''],
       companyName: [''],
-      address: [''],
+      city: [''],
+      description: [''],
       startDate: [''],
       endDate: [''],
-      skillsUtilized: [''],
       experienceType: [''],
       certifications: [''],
       toolsTechnologies: [''],
-      projectLinks: [''],
       fadeIn: true,
     };
     setExperienceData([...experienceData, newData]);
@@ -101,15 +100,14 @@ const Experiences = () => {
     setExperienceData([
       {
         jobTitle: [''],
-      companyName: [''],
-      address: [''],
-      startDate: [''],
-      endDate: [''],
-        skillsUtilized: [''],
+        companyName: [''],
+        city: [''],
+        description: [''],
+        startDate: [''],
+        endDate: [''],
         experienceType: [''],
         certifications: [''],
         toolsTechnologies: [''],
-        projectLinks: [''],
         fadeIn: true,
       },
     ]);
@@ -145,14 +143,30 @@ const Experiences = () => {
             </Col>
           </Row>
 
-          {/* Address */}
-          <Form.Group className="mb-3" controlId={`address-${index}`}>
-            <Form.Label><FaMapMarkerAlt /> Address</Form.Label>
+          {/* city */}
+          <Form.Group className="mb-3" controlId={`city-${index}`}>
+            <Form.Label><FaMapMarkerAlt /> City</Form.Label>
+            <Form.Select
+              value={experience.city[0]}
+              onChange={(e) => handleArrayFieldChange(index, "city", 0, e.target.value)}
+            >
+              <option value="">Select...</option>
+              {cityData.map(city => (
+                <option key={city.id} value={city.ville}>
+                  {city.ville}
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+
+          {/* Description */}
+          <Form.Group className="mb-3" controlId={`description-${index}`}>
+            <Form.Label><FaMapMarkerAlt /> Description</Form.Label>
             <Form.Control
-              type="text"
-              placeholder="Enter the address"
-              onChange={(e) => handleArrayFieldChange(index, "address", 0, e.target.value)}
-              value={experience.address[0]}
+              as="textarea"  
+              placeholder="Talk here about your experience"
+              onChange={(e) => handleArrayFieldChange(index, "description", 0, e.target.value)}
+              value={experience.description[0]}
             />
           </Form.Group>
 
@@ -182,71 +196,30 @@ const Experiences = () => {
             </Col>
           </Row>
 
-          {/* Skills Utilized */}
-          <Form.Group className="mb-3" controlId={`skillsUtilized-${index}`}>
-            <Form.Label><FaSortNumericDown /> Skills Utilized</Form.Label>
-            <Row>
-              <Col>
-                {experience.skillsUtilized.map((skill, subIndex) => (
-                  <div key={subIndex} className={`mb-2 d-flex align-items-center ${subIndex !== 0 ? "mt-2" : ""}`}>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter relevant skills"
-                      value={skill}
-                      onChange={(e) => handleArrayFieldChange(index, "skillsUtilized", subIndex, e.target.value)}
-                    />
-                    {subIndex !== 0 && (
-                      <Button
-                        variant="outline-dark"
-                        className="ml-2 mx-4"
-                        onClick={() => handleRemoveArrayField(index, "skillsUtilized", subIndex)}
-                      >
-                        <FaTrash />
-                      </Button>
-                    )}
-                  </div>
-                ))}
-              </Col>
-              <Col lg={1}>
-                <Button variant="outline-dark" onClick={() => handleAddArrayField(index, "skillsUtilized")} className="ml-2">
-                  <FaPlus />
-                </Button>
-              </Col>
-            </Row>
-          </Form.Group>
-
           {/* Experience Type */}
           <Form.Group className="mb-3" controlId={`experienceType-${index}`}>
-            <Form.Label><FaSortNumericDown /> Experience Type</Form.Label>
-            <Row>
-              <Col>
-                {experience.experienceType.map((type, subIndex) => (
-                  <div key={subIndex} className={`mb-2 d-flex align-items-center ${subIndex !== 0 ? "mt-2" : ""}`}>
-                    <Form.Control
-                      type="text"
-                      placeholder="Full-time, Part-time, etc."
-                      value={type}
-                      onChange={(e) => handleArrayFieldChange(index, "experienceType", subIndex, e.target.value)}
-                    />
-                    {subIndex !== 0 && (
-                      <Button
-                        variant="outline-dark"
-                        className="ml-2 mx-4"
-                        onClick={() => handleRemoveArrayField(index, "experienceType", subIndex)}
-                      >
-                        <FaTrash />
-                      </Button>
-                    )}
-                  </div>
-                ))}
-              </Col>
-              <Col lg={1}>
-                <Button variant="outline-dark" onClick={() => handleAddArrayField(index, "experienceType")} className="ml-2">
-                  <FaPlus />
-                </Button>
-              </Col>
-            </Row>
+            <Form.Label><FaSortNumericDown /> Experience Type:</Form.Label>
+            <Form.Select
+              value={experience.experienceType[0]}
+              onChange={(e) => handleArrayFieldChange(index, "experienceType", 0, e.target.value)}
+            >
+              <option value="">Select...</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Internship">Internship</option>
+            </Form.Select>
+            {experience.experienceType.length > 1 && (
+              <Button
+                variant="outline-dark"
+                className="ml-2 mx-4"
+                onClick={() => handleRemoveArrayField(index, "experienceType", 1)}
+              >
+                <FaTrash />
+              </Button>
+            )}
           </Form.Group>
+
+
 
           {/* Certifications */}
           <Form.Group className="mb-3" controlId={`certifications-${index}`}>
@@ -314,54 +287,21 @@ const Experiences = () => {
             </Row>
           </Form.Group>
 
-          {/* Project Links */}
-          <Form.Group className="mb-3" controlId={`projectLinks-${index}`}>
-            <Form.Label><FaSortNumericDown /> Project Links</Form.Label>
-            <Row>
-              <Col>
-                {experience.projectLinks.map((link, subIndex) => (
-                  <div key={subIndex} className={`mb-2 d-flex align-items-center ${subIndex !== 0 ? "mt-2" : ""}`}>
-                    <Form.Control
-                      type="text"
-                      placeholder="Paste Link of the project"
-                      value={link}
-                      onChange={(e) => handleArrayFieldChange(index, "projectLinks", subIndex, e.target.value)}
-                    />
-                    {subIndex !== 0 && (
-                      <Button
-                        variant="outline-dark"
-                        className="ml-2 mx-4"
-                        onClick={() => handleRemoveArrayField(index, "projectLinks", subIndex)}
-                      >
-                        <FaTrash />
-                      </Button>
-                    )}
-                  </div>
-                ))}
-              </Col>
-              <Col lg={1}>
-                <Button variant="outline-dark" onClick={() => handleAddArrayField(index, "projectLinks")} className="ml-2">
-                  <FaPlus />
-                </Button>
-              </Col>
-            </Row>
-          </Form.Group>
-
         </div>
       ))}
 
       <Form.Group>
-        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  style={{marginTop:'20px'}}>
+        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" style={{ marginTop: '20px' }}>
           Previous Step
         </Button>
-        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleClick}>
+        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" style={{ marginTop: '20px', marginLeft: '10px' }} onClick={handleClick}>
           Next Step
         </Button>
 
         <Button
           className="button-transition btn btn-outline-dark border-dark rounded-5"
           variant="outline"
-          style={{ marginTop: "20px",marginLeft:'45%', right: "200px" }}
+          style={{ marginTop: "20px", marginLeft: '45%', right: "200px" }}
           onClick={handleNewData}
         >
           <FaPlus style={{ marginRight: "5px" }} />

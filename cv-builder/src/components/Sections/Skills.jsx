@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import { FaPlus, FaTimes } from 'react-icons/fa';
+import cv from '../ExportData';
 
 const Skills = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -144,7 +145,8 @@ const Skills = () => {
         </Button>
       </Form>
 
-      {/* ... (Render Language and References components, assuming they are defined elsewhere) */}
+      <cv.Language />
+      <cv.References />
     </div>
   );
 };
