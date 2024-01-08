@@ -142,7 +142,7 @@ const Experiences = () => {
           </Row>
 
           {/* Address */}
-          <Form.Group controlId={`address-${index}`}>
+          <Form.Group className="mb-3" controlId={`address-${index}`}>
             <Form.Label><FaMapMarkerAlt /> Address</Form.Label>
             <Form.Control
               type="text"
