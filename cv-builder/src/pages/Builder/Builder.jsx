@@ -1,13 +1,16 @@
 import React from 'react'
-import {Row, Col, Tabs, Tab} from 'react-bootstrap'
+import {Row, Col, Tabs, Tab, Container} from 'react-bootstrap'
 import cv from '../../components/ExportData'
 import './Builder.css'
+import HeadingStyle from '../../extensions/HeadingStyle'
 
 const Builder = () => {
   return (
-   <Row className='container-fluid model-builder mt-5'>
+    <Container className="d-flex justify-content-center">
+
+   <Row className='container-fluid model-builder mt-5 '>
     <HeadingStyle title="Builder your CV" />
-    <Col>
+    <Col className='justify-content-center ml-5'>
     <Tabs
       defaultActiveKey="profile"
       id="justify-tab-example"
@@ -29,6 +32,8 @@ const Builder = () => {
     </Tabs>
     </Col>
    </Row>
+   </Container>
+
   )
 }
 

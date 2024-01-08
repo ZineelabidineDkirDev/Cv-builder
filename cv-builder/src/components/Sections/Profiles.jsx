@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-
+import {Button} from 'react-bootstrap'
 import ProfileImageUpload from './ProfileImageUploader';
 
 
@@ -114,10 +114,12 @@ const Profiles = () => {
 
       {/* {src && <img src={src} alt="" />} */}
 
-      <div className="col-12">
-        <button type="button" onClick={handleSubmit} className="btn btn-primary">next Step </button>
-        {/* <button type="button" onClick={clickme}>cllll</button> */}
-      </div>
+      <div className="col-12">      
+      <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  
+      style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleSubmit}>
+          Next Step
+        </Button>
+        </div>
 
     </form>
   )
