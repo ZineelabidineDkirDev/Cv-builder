@@ -1,0 +1,31 @@
+# Ignore node_modules directory
+/node_modules
+
+# Ignore logs and other generated files
+logs
+*.log
+npm-debug.log*
+
+/.npmrc
+
+# Ignore yarn configuration file
+.yarnrc
+
+# Ignore yarn state files
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Ignore pnpm store directory
+/.pnpm-store
+
+# Ignore VSCode configuration files
+.vscode
+
+# Ignore .env files
+.env
+
+# Ignore node.js binary
+node_modules/
