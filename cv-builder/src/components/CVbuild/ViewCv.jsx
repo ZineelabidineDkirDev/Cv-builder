@@ -26,7 +26,7 @@ const ViewCv = () => {
             className="btn btn-outline-dark border-dark rounded-5 px-4 py-2 d-flex align-items-center justify-content-center"
             style={{ marginTop: '20px', marginLeft: '45%' }}
           >
-            Print your Cv
+            Print your Cv 
           </button>
     </div>
     <Row className='justify-items-center'>
