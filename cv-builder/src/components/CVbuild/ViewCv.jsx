@@ -4,13 +4,16 @@ import Content from './Content';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import './Content.css'
 import HeadingStyle from '../../extensions/HeadingStyle';
+import html2pdf from "html2pdf.js";
 
 
 const ViewCv = () => {
   const [isButtonClicked, setButtonClicked] = useState(false);
 
     const handlePrint = () => {
-      window.print();
+      // window.print();
+      const cv = document.getElementById("cv-print");
+      html2pdf(cv);
     };
 
   return (
@@ -36,7 +39,7 @@ const ViewCv = () => {
     <Col md={5}></Col>
     </Row>
     <Container id="cv-hd" fluid  style={{ width: '60%' ,marginLeft:'20%',height: '100%'}}>
-      <Row>
+      <Row id="cv-print">
         <Col md={4} className='p-0'>
           <SideBar className={`sidebar-card p-0 ${isButtonClicked ? 'clicked' : ''}`} />
         </Col>
