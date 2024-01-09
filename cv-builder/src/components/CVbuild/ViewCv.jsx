@@ -5,25 +5,27 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import './Content.css'
 import HeadingStyle from '../../extensions/HeadingStyle';
 
+
 const ViewCv = () => {
   const [isButtonClicked, setButtonClicked] = useState(false);
 
-  // const handleButtonClick = () => {
-  //   setButtonClicked(!isButtonClicked);
-  // };
+    const handlePrint = () => {
+      window.print();
+    };
 
-  // const [DataJsonProfile,setDataJsonProfile] = useState([]); 
-
-  // useEffect(()=>{
-  //   const storeProfileData = JSON.parse(localStorage.getItem("profileData")) || [];
-  //   setDataJsonProfile(storeProfileData);
-  //   console.log(storeProfileData);
-  // },[]);
-
-  
   return (
     <div>
     <HeadingStyle title="View CV" />
+    <div>
+    <button
+            type="button"
+            onClick={handlePrint}
+            className="btn btn-outline-dark border-dark rounded-5 px-4 py-2 d-flex align-items-center justify-content-center"
+            style={{ marginTop: '20px', marginLeft: '45%' }}
+          >
+            Print your Cv
+          </button>
+    </div>
     <Row className='justify-items-center'>
     <Col md={3}></Col>
     {/* <Col md={3}>
@@ -33,7 +35,7 @@ const ViewCv = () => {
     </Col> */}
     <Col md={5}></Col>
     </Row>
-    <Container fluid  style={{ width: '60%' ,marginLeft:'20%'}}>
+    <Container id="cv-hd" fluid  style={{ width: '60%' ,marginLeft:'20%',height: '100%'}}>
       <Row>
         <Col md={4} className='p-0'>
           <SideBar className={`sidebar-card p-0 ${isButtonClicked ? 'clicked' : ''}`} />
