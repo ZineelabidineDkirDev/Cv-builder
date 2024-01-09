@@ -10,7 +10,7 @@ const ViewCv = () => {
   const [isButtonClicked, setButtonClicked] = useState(false);
 
     const handlePrint = () => {
-      window.print();
+      ("#cv-hd").print();
     };
 
   return (
@@ -35,8 +35,8 @@ const ViewCv = () => {
     </Col> */}
     <Col md={5}></Col>
     </Row>
-    <Container id="cv-hd" fluid  style={{ width: '60%' ,marginLeft:'20%',height: '100%'}}>
-      <Row>
+    <Container fluid  >
+      <Row id='cv-hd' style={{ width: '594px' ,marginLeft:'20%',height: '842px'}}>
         <Col md={4} className='p-0'>
           <SideBar className={`sidebar-card p-0 ${isButtonClicked ? 'clicked' : ''}`} />
         </Col>

@@ -144,9 +144,10 @@ const SideBar = () => {
         <Card.Text className='sidebar-info'>
         {/* {socialink.map((sl, index) => ( */}
             <div className="links">
-              <p><AiFillTwitterSquare style={{fontSize:'22px'}}/> Twitter</p>
-              <p><AiFillLinkedin style={{fontSize:'22px'}}/> LinkedIn</p>
-              <p><AiFillGithub style={{fontSize:'22px'}}/> Github</p>
+              
+              <p><AiFillTwitterSquare style={{fontSize:'22px'}}/> {referencesData[0]}</p>
+              <p><AiFillLinkedin style={{fontSize:'22px'}}/> {referencesData[1]}</p>
+              <p><AiFillGithub style={{fontSize:'22px'}}/> {referencesData[0]}</p>
             </div>
           {/* ))} */}
         </Card.Text>
