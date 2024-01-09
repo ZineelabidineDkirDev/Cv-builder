@@ -15,7 +15,7 @@ const CvNavbar = () => {
           <Nav className="me-auto">
             <Nav.Link className='text-dark' href="/">Home</Nav.Link>
             <Nav.Link className='text-dark' href="/service">Service</Nav.Link>
-            <Nav.Link className='text-dark' href="/contact">Contact</Nav.Link>
+            <Nav.Link className='text-dark' href="/contact">View CV</Nav.Link>
           </Nav>
           <Nav className='me'>
             <Button variant="dark" className='rounded-5 hover-text-dark px-4 py-0'>
