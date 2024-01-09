@@ -42,3 +42,10 @@
   .tab-content p {
     color: #495057;
   }
+.background-overlay-style{
+  background:url('../src/assets/bg-st.jpg');
+  width:100%;
+  
+  background-size:cover
+}
+ 

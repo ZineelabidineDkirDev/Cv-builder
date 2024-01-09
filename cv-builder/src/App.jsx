@@ -19,6 +19,9 @@ function App() {
         {/* <Route path="/template" element={<cv.Template/>}/> */}
         <Route path="/contact" element={<cv.Contact/>}/>
         <Route path="/builder" element={<cv.Builder/>}/>
+        <Route path="/builder#educations" element={<cv.Educations/>}/>
+        <Route path="/builder" element={<cv.Builder/>}/>
+        <Route path="/builder" element={<cv.Builder/>}/>
      </Routes>
    
      <cv.Footer/>

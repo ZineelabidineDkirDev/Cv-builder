@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {Card,Image,Badge} from 'react-bootstrap'
 import { AiFillBuild, AiFillCaretDown, AiFillChrome, AiFillFacebook, AiFillGithub, AiFillHome, AiFillLinkedin,
-   AiFillMail,AiFillPhone, AiOutlineBuild, AiOutlineCarryOut, AiOutlineFlag, AiOutlineHome, AiOutlineMail, 
+   AiFillMail,AiFillPhone, AiFillTwitterCircle, AiFillTwitterSquare, AiOutlineBuild, AiOutlineCarryOut, AiOutlineFlag, AiOutlineHome, AiOutlineMail, 
    AiOutlinePhone} from 'react-icons/ai'
 import Language from '../Sections/Language';
 const SideBar = () => {
@@ -34,7 +34,7 @@ const SideBar = () => {
 
     useEffect(() => {
       const storeSkillData = JSON.parse(localStorage.getItem("skills_data")) || [];
-      setProfileData([storeSkillData]);
+      setSkillsData([storeSkillData]);
       console.log("Skill Data", storeSkillData);
     }, []);
     
@@ -48,7 +48,7 @@ const SideBar = () => {
 
    useEffect(() => {
      const storeLanguageData = JSON.parse(localStorage.getItem("language_data")) || [];
-     setProfileData([storeLanguageData]);
+     setLanguageData([storeLanguageData]);
      console.log("Skill Data", storeLanguageData);
    }, []);
    
@@ -57,6 +57,20 @@ const SideBar = () => {
      return null; // or handle the error in some other way
    }
 
+
+    //References 
+    const [referencesData, setReferencesData] = useState([]);
+
+    useEffect(() => {
+      const storeReferencesData = JSON.parse(localStorage.getItem("references_data")) || [];
+      setReferencesData([storeReferencesData]);
+      console.log("Skill Data", storeReferencesData);
+    }, []);
+    
+    if (!Array.isArray(referencesData)) {
+      console.error("References Data:", referencesData);
+      return null; // or handle the error in some other way
+    }
  
   return (
         <Card className="sidebar-card">
@@ -87,13 +101,19 @@ const SideBar = () => {
           
           <p className='bg-light w-[100%] p-3 '><b>Skills</b></p>
         </Card.Title>
+       
         <Card.Text className='sidebar-info'>
-         {skillsData.map((skill, index) => ( 
-            <Badge key={index} className="skill-badge">
-              <AiFillBuild/>{skill.displayedSkills}
-            </Badge>
+          {skillsData.length <= 2 && skillsData.map((skill, index) => (
+            <div key={index}>
+              {skill.displayedSkills.slice(0,3).map((individualSkill, skillIndex) => (
+                <Badge key={skillIndex} className="skill-badge">
+                  {individualSkill}
+                </Badge>
+              ))}
+            </div>
           ))}
         </Card.Text>
+
         </div>
 
 
@@ -109,9 +129,9 @@ const SideBar = () => {
                   <span key={i} className={`star ${i < language.level ? 'filled' : ''}`}></span>
                 ))} */}
                 { languageData.map((lang,index)=>(
-                  <p>
-                  <AiOutlineFlag style={{fontSize:'22px'}}/>  {lang.availableLanguages}
-                  </p>
+                  <div key={index}>
+                  <AiOutlineFlag style={{fontSize:'22px'}}/>  {lang.displayedLanguages}
+                  </div>
                 ))}
               </div>
             </div>
@@ -124,7 +144,7 @@ const SideBar = () => {
         <Card.Text className='sidebar-info'>
         {/* {socialink.map((sl, index) => ( */}
             <div className="links">
-              <p><AiFillFacebook style={{fontSize:'22px'}}/> Facebook</p>
+              <p><AiFillTwitterSquare style={{fontSize:'22px'}}/> Twitter</p>
               <p><AiFillLinkedin style={{fontSize:'22px'}}/> LinkedIn</p>
               <p><AiFillGithub style={{fontSize:'22px'}}/> Github</p>
             </div>

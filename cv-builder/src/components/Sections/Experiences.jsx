@@ -30,7 +30,6 @@ const Experiences = () => {
     },
   ]);
 
-  const [showGoToFirstButton, setShowGoToFirstButton] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("experienceData", JSON.stringify(experienceData));
@@ -41,26 +40,6 @@ const Experiences = () => {
     setExperienceData(storedData);
   }, []);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-
-    try {
-      const hasNonEmptyData = experienceData.every((item) =>
-        Object.values(item).every(
-          (value) =>
-            Array.isArray(value) ? value.every((val) => val !== "") : value !== ""
-        )
-      );
-      if (hasNonEmptyData) {
-        const jsonData = JSON.stringify(experienceData);
-        console.log(jsonData);
-      } else {
-        alert("Please fill in all fields before proceeding to the next step.");
-      }
-    } catch (error) {
-      console.error("Error saving data to local file:", error);
-    }
-  };
   const handleArrayFieldChange = (experienceIndex, field, subIndex, value) => {
     const updatedData = [...experienceData];
     updatedData[experienceIndex][field][subIndex] = value;
@@ -291,34 +270,18 @@ const Experiences = () => {
       ))}
 
       <Form.Group>
-        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" style={{ marginTop: '20px' }}>
-          Previous Step
-        </Button>
-        <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" style={{ marginTop: '20px', marginLeft: '10px' }} onClick={handleClick}>
-          Next Step
-        </Button>
 
         <Button
           className="button-transition btn btn-outline-dark border-dark rounded-5"
           variant="outline"
-          style={{ marginTop: "20px", marginLeft: '45%', right: "200px" }}
+          style={{ marginTop: "20px", marginLeft: '75%', right: "200px" }}
           onClick={handleNewData}
         >
           <FaPlus style={{ marginRight: "5px" }} />
           Add Another Experience
         </Button>
 
-        {showGoToFirstButton && (
-          <Button
-            className="button-transition btn btn-outline-dark border-dark rounded-5"
-            variant="outline"
-            style={{ marginTop: "20px", position: "absolute", right: "450px" }}
-            onClick={handleGoToFirstExperience}
-          >
-            <FaTrash style={{ marginRight: "5px" }} />
-            Back
-          </Button>
-        )}
+        
       </Form.Group>
     </Form>
   );

@@ -63,7 +63,7 @@ const Content = () => {
       <Row>
             <Col>
                 {educateData.length<=2 && educateData.map((education, id) => (
-                <Row key={id} className='card-model-content'>
+                <Row key={id} >
                     <Col className='card-model-content'>
                     <p>{education.Startdate}</p>
                     <span className='hr-model'></span>

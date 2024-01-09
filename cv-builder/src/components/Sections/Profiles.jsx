@@ -2,10 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import {Button} from 'react-bootstrap'
 import ProfileImageUpload from './ProfileImageUploader';
-
-
-//import file system fs to store data inside json file 
-// import { saveJson } from './saveData';
+import Educations from './Educations';
 const filee = '../../data/ProfilsData.json';
 
 
@@ -22,7 +19,7 @@ const Profiles = () => {
     codePostall: '',
     imgProfile: '',
     description:'',
-    age:''
+    daten:''
   });
 
   
@@ -47,13 +44,14 @@ const Profiles = () => {
     }));
   };
 
-  const handleSubmit = () => {
+
+
+  useEffect(() => {
     const jsonData = JSON.stringify(formData);
-    // console.log(jsonData);
     localStorage.setItem('profileData', jsonData);
     console.log('JSON Data:', jsonData);
-    // saveJson(filee,formData);
-  };
+  }, [formData]);
+
 
   // save data inside json file using fs node js module
   // useEffect(() => {
@@ -104,8 +102,8 @@ const Profiles = () => {
               <br></br>
             <div className="row">
               <div className="col-lg-12">
-                <label htmlFor="age" className="form-label">Date naissance :</label>
-                <input type="date" className="form-control" id="age" name='age' value={formData.daten} onChange={handleChange} />
+                <label htmlFor="daten" className="form-label">Date naissance :</label>
+                <input type="date" className="form-control" id="daten" name='daten' value={formData.daten} onChange={handleChange} />
               </div>
             </div>
             
@@ -135,18 +133,11 @@ const Profiles = () => {
         <label htmlFor="description" className="form-label">Déscription :</label>
         <textarea className="form-control" id="description" name='description' value={formData.description} onChange={handleChange} ></textarea>
       </div>
-
-      {/* {src && <img src={src} alt="" />} */}
-
-      <div className="col-12">      
-      <Button variant="outline" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"  
-      style={{marginTop:'20px' , marginLeft:'10px'}} onClick={handleSubmit}>
-          Next Step
-        </Button>
-        </div>
+        
 
     </form>
   )
+  
     
 };
 

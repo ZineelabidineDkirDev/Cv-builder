@@ -34,34 +34,26 @@ const References = () => {
     updatedReferences.splice(index, 1);
     setReferences(updatedReferences);
 
-    // Save updated references to local storage
     localStorage.setItem('references_data', JSON.stringify(updatedReferences));
   };
 
   const saveReferences = () => {
     const referencesData = JSON.stringify(references, null, 2);
 
-    // Create a Blob object from the JSON data
     const blob = new Blob([referencesData], { type: 'application/json' });
 
-    // Create a URL object from the Blob
     const url = URL.createObjectURL(blob);
 
-    // Create an <a> element to download the file
     const a = document.createElement('a');
     a.href = url;
     a.download = 'references.json';
 
-    // Add the <a> element to the document
     document.body.appendChild(a);
 
-    // Click on the <a> element to trigger the download
     a.click();
 
-    // Remove the <a> element from the document
     document.body.removeChild(a);
 
-    // Revoke the URL to free up resources
     URL.revokeObjectURL(url);
   };
 
@@ -98,10 +90,11 @@ const References = () => {
           />
         </Form.Group>
 
-        {/* Button to add reference */}
-        <Button variant="outline-dark" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2" onClick={handleAddReference}>
+        Button to add reference
+        {linkedIn !=='' && github !== '' && twitter !== '' ? <Button  variant="outline-dark" className="btn btn-outline-dark border-dark rounded-5 px-4 py-2"
+         onClick={handleAddReference}>
           Add
-        </Button>
+        </Button> : ''}
 
         <Row className="mt-3">
           <Col>
@@ -123,7 +116,6 @@ const References = () => {
           </Col>
         </Row>
 
-        {/* Button to save references */}
         <Button
           variant="outline-dark"
           className="btn btn-outline-dark border-dark rounded-5 px-4 py-2 mt-3"
