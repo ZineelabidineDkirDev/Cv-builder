@@ -1,0 +1,19 @@
+.profile-container {
+    position: relative;
+    width: 144px; /* Set the width of the container as needed */
+    height: 144px; /* Set the height of the container as needed */
+    overflow: hidden;
+    border-radius: 50%; /* Make it round for a profile picture effect */
+}
+
+/* Style the hidden input */
+.profile-input {
+    display: none;
+}
+
+/* Style the profile icon */
+.profile-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the icon covers the container */
+}
