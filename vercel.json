@@ -1,14 +1,9 @@
 {
-    "version": 2,
    
     "routes": [
       {
-        "src": "/(.*\\.(json|ico|css|js|png|jpg|jpeg|gif|svg|woff|woff2|tff))",
+        "src": "/(.*)",
         "dest": "/"
-      },
-      {
-        "src": "/.*",
-        "dest": "/dist/index.html"
       }
     ]
   }
