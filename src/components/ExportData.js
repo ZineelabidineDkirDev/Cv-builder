@@ -3,6 +3,8 @@ import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
 import Service from "../pages/Service/Service";
 import Template from "../pages/Template/Template";
+import Content from "./CVbuild/Content";
+import SideBar from "./CVbuild/SideBar";
 import CityLoader from "./CityLoader/CityLoader";
 import Footer from "./Footer/Footer";
 import CvNavbar from "./Navbar/CvNavbar";
@@ -29,7 +31,8 @@ export default {
     Language,
     References,
     CityLoader,
-    Template
-
+    Template,
+    SideBar,
+    Content
 
 }

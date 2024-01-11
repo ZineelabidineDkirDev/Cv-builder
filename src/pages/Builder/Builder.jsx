@@ -65,7 +65,7 @@ const Builder = () => {
   return (
     <Container className="d-flex justify-content-center background-overlay-style">
       <Row className='container-fluid model-builder mt-5 '>
-        <HeadingStyle title="Builder your CV" />
+        <HeadingStyle title="Build your CV" />
         <Col className='justify-content-center ml-5'>
           <Tabs
             activeKey={activeTab}

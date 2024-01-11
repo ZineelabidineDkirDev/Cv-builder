@@ -1,12 +1,29 @@
 
 import React, { useState, useEffect } from 'react'
-import {Button} from 'react-bootstrap'
+import {Button, Form, Row,Col,Container} from 'react-bootstrap'
 import ProfileImageUpload from './ProfileImageUploader';
 import Educations from './Educations';
 const filee = '../../data/ProfilsData.json';
+import cityData from '../../CityLoader/CityData.json';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { AiOutlineCompass, AiOutlineDown, AiOutlineEnvironment, AiOutlineFlag, AiOutlineHome, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
 
 
 const Profiles = () => {
+  const [validation,setValidation] = useState({
+    nom:'The lastName field is required',
+    prenom:'The firstName field is required',
+    email:'The Email field is required',
+    phone:'The Phone field is required',
+    adress:'The Address field is required',
+    country:'The Country field is required',
+    city:'The City field is required',
+    codePostall:'The postal Code field is required',
+    imgProfile : 'The image is required',
+    daten : 'The Birthday is required',
+    description: 'The description of profil is required'
+  })
+
   // const [src, setSrc] = useState('');
   const [formData, setFormData] = useState({
     nom: '',
@@ -35,6 +52,13 @@ const Profiles = () => {
       [name]: value
     }));
 
+    if(validation.nom ==='' && validation.prenom ==='' && validation.email ==='' && validation.phone===''
+    && validation.codePostall==='' && validation.adress==='' && validation.country ==='' && validation.daten===''
+    && validation.description ==='' && validation.imgProfile ==='')
+    {
+      let modelValidate = setValidation(validation)
+      console.log(modelValidate);
+    }
   };
 
   const handleFileChange = (file) => {
@@ -66,76 +90,108 @@ const Profiles = () => {
 
   return (
 
-    <form className="row g-3 ">
+    <Form className="row g-3 ">
 
-      <div className="col-lg-12">
-        <div className="row d-flex align-items-center justify-content-center">
-          <div className="col-4 d-flex align-items-center justify-content-center">
+      <Container fluid className="col-lg-12">
+        <Row className="row d-flex align-items-center justify-content-center">
+          <Col className="col-4 d-flex align-items-center justify-content-center mb-3 mt-4">
             <ProfileImageUpload onFileChange={handleFileChange} />
-          </div>
-
-
-          <div className="col-lg-8">
-            <div className="row">
-              <div className="col-lg-6">
-                <label htmlFor="nom" className="form-label">Nom :</label>
-                <input type="text" className="form-control" id="nom" name="nom" value={formData.nom}
-                  onChange={handleChange} />
-              </div>
-              <br></br>
-              <div className="col-lg-6">
-                <label htmlFor="prenom" className="form-label">Prénom :</label>
-                <input type="text" className="form-control" id="prenom" name='prenom' value={formData.prenom} onChange={handleChange} />
-              </div>
-            </div>
-            <br></br>
-            <div className="row">
-              <div className="col-lg-6">
-                <label htmlFor="email" className="form-label">Email :</label>
-                <input type="email" className="form-control" id="email" name='email' value={formData.email} onChange={handleChange} />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="phone" className="form-label">Phone :</label>
-                <input type="number" className="form-control" id="phone" name='phone' value={formData.phone} onChange={handleChange} />
-              </div>
-              </div>
-              <br></br>
-            <div className="row">
-              <div className="col-lg-12">
-                <label htmlFor="daten" className="form-label">Date naissance :</label>
-                <input type="date" className="form-control" id="daten" name='daten' value={formData.daten} onChange={handleChange} />
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-
-
-      <div className="col-lg-6">
-        <label htmlFor="inputEmail4" className="form-label">Country :</label>
-        <input type="text" className="form-control" id="inputEmail4" name='country' value={formData.country} onChange={handleChange} />
-      </div>
-      <div className="col-lg-6">
-        <label htmlFor="inputPassword4" className="form-label">City :</label>
-        <input type="text" className="form-control" id="inputPassword4" name='city' value={formData.city} onChange={handleChange} />
-      </div>
-      <div className="col-8">
-        <label htmlFor="adress" className="form-label">Address :</label>
-        <input type="text" className="form-control" id="adress" name='adress' value={formData.adress} onChange={handleChange} />
-      </div>
-      <div className="col-md-4">
-        <label htmlFor="inputCity" className="form-label">Zip :</label>
-        <input type="text" className="form-control" id="zip" name='codePostall' value={formData.codePostall} onChange={handleChange} />
-      </div>
-
-      <div className="col-12">
-        <label htmlFor="description" className="form-label">Déscription :</label>
-        <textarea className="form-control" id="description" name='description' value={formData.description} onChange={handleChange} ></textarea>
-      </div>
+          </Col>
+          </Row> 
+       
         
+            <Row className="row py-4">
+              <Col className="col-6">
+              <AiOutlineUser  style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
+                <input type="text" className="form-control" style={{paddingLeft:'2.5rem'}}  id="nom" name="nom" value={formData.nom}
+                  onChange={handleChange} placeholder='First Name' />
+              </Col>
+              <Col className="col-6">
+              <AiOutlineUser  style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
+                <input type="text" className="form-control" style={{paddingLeft:'2.5rem'}} id="prenom" name='prenom'
+                 value={formData.prenom} onChange={handleChange} placeholder='Last Name'  />
+              </Col>
+            </Row>
 
-    </form>
+            <Row className="row py-4">
+              <Col className="col-lg-6">
+              <AiOutlineMail  style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
+                <input type="email" className="form-control" style={{paddingLeft:'2.5rem'}} id="email" name='email' value={formData.email}
+                 onChange={handleChange} placeholder='Mail'/>
+              </Col>
+              <Col className="col-lg-6">
+              <AiOutlinePhone style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
+                <input type="number" className="form-control" style={{paddingLeft:'2.5rem'}} id="phone" name='phone'
+                 value={formData.phone} onChange={handleChange} placeholder='Phone number' />
+              </Col>
+            </Row>            
+            
+          
+      <Row className="row">
+        <Col className="col-lg-6">
+            <label htmlFor="daten" className="form-label"></label>
+            <input type="date" className="form-control" id="daten" name='daten' value={formData.daten} onChange={handleChange} />
+        </Col>
+        <Col className="col-lg-3">
+        <AiOutlineFlag style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
+          <input type="text" className="form-control" style={{paddingLeft:'2.5rem'}} id="inputEmail4" name='country' value={formData.country} 
+          onChange={handleChange} placeholder='Country'/>
+        </Col>
+        <Col className="col-lg-3">
+            <Form.Group className="mb-3" >
+              <AiOutlineEnvironment style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
+              <Form.Select
+                
+                onChange={handleChange}
+                style={{paddingLeft:'2.5rem'}}
+              >
+                <option value={formData.city}>Select City...</option>
+                {cityData.map(city => (
+                <option key={city.id} value={city.ville}>
+                    {city.ville}
+                </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+
+        </Col>
+        
+      </Row>
+     
+     <Row className="row py-4">
+     <Col className="col-md-8">
+     <AiOutlineHome style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  />
+        <input type="text" className="form-control" style={{paddingLeft:'2.5rem'}} id="adress" name='adress' 
+        value={formData.adress} onChange={handleChange} placeholder='Address'/>
+      </Col>
+    
+      <Col className="col-md-4">
+        <AiOutlineDown style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  />
+        <input type="text" className="form-control" style={{paddingLeft:'2.5rem'}} id="zip" name='codePostall' value={formData.codePostall} 
+        onChange={handleChange} placeholder='PostCode'/>
+      </Col>
+      </Row>
+                  
+      <Row className='row mb-4'>
+      <Col className="col-md-12 mb-4">
+        <textarea className="form-control" id="description" name='description' value={formData.description}
+         onChange={handleChange} placeholder='Description of your profil -- Max 200 words ' rows={5}></textarea>
+      </Col>
+      </Row>
+      </Container>
+
+      
+      
+
+    </Form>
   )
   
     
