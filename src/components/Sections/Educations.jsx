@@ -1,6 +1,6 @@
 import React from 'react'
-import {Row,Form, Button , Col } from 'react-bootstrap'
-import { FaPhoneAlt, FaHome , FaPlus , FaMinus , FaSchool , FaCity , FaCalendar , FaBook } from "react-icons/fa";
+import {Row,Form, Button , Col, Container } from 'react-bootstrap'
+import { FaPhoneAlt, FaHome , FaPlus , FaMinus , FaSchool , FaCity , FaCalendar , FaBook, FaFile } from "react-icons/fa";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import cityData from '../../CityLoader/CityData.json';
@@ -50,55 +50,31 @@ const Educations = () => {
 
   
   return (
+    <Container>
     <Form>
       {educationData.map((education, index) => (
      <div key={index} className={`fade-in ${education.fadeIn ? 'active' : ''}  ` } style={{  marginTop:'25px' , borderBlockEnd:'1.5px solid black ', paddingBottom:'20px' }} >
+         <Form>
+         <Col>
           <Form.Group className="mb-3" controlId={`degree-${index}`}>
-            <Form.Label>  <FaBook style={{paddingRight:'5px'}}/> Degree  :</Form.Label>
+            <FaBook style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
             <Form.Control
               type="text"
               name="Degree"
+              style={{paddingLeft:'2.5rem'}}
               placeholder="Degree"
               value={education.Degree}
               onChange={(e) => handleChange(index, e)}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId={`dates-${index}`}>
-            <Row>
-              <Col>
-                <Form.Label> <FaCalendar style={{paddingRight:'5px'}}  /> Start date:</Form.Label>
-                <Form.Control
-                  type="date"
-                  name="Startdate"
-                  value={education.Startdate}
-                  onChange={(e) => handleChange(index, e)}
-                />
-              </Col>
-              <Col>
-                <Form.Label> <FaCalendar style={{paddingRight:'5px'}}  /> End date:</Form.Label>
-                <Form.Control
-                  type="date"
-                  name="Enddate"
-                  value={education.Enddate}
-                  onChange={(e) => handleChange(index, e)}
-                />
-              </Col>
-            </Row>
-          </Form.Group>
-          <Form.Group controlId={`description-${index}`}  style={{marginBlockEnd:'10px'}}>
-            <Form.Label>Description : </Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Provide a description..."
-              name="Description"
-              value={education.Description}
-              onChange={(e) => handleChange(index, e)}
-            />
-          </Form.Group>
+          </Col>
+          <Col>
           <Form.Group className="mb-3" controlId={`etablissment-${index}`}>
-            <Form.Label><FaSchool style={{paddingRight:'5px'}}  /> Etablissment:</Form.Label>
+            <FaSchool style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
             <Form.Control
+              style={{paddingLeft:'2.5rem'}}
               type="text"
               placeholder="Etablissment"
               name="Etablissment"
@@ -106,20 +82,60 @@ const Educations = () => {
               onChange={(e) => handleChange(index, e)}
             />
           </Form.Group>
-          <Form.Group controlId={`city-${index}`}>
-            <Form.Label><FaCity style={{paddingRight:'5px'}} />City:</Form.Label>
+          </Col>
+         </Form>
+          <Form.Group className="mb-3" controlId={`dates-${index}`}>
+            <Row>
+              <Col className='col-3'>
+                <Form.Label> </Form.Label>
+                <Form.Control
+                  type="date"
+                  name="Startdate"
+                  value={education.Startdate}
+                  onChange={(e) => handleChange(index, e)}
+                />
+              </Col>
+              <Col className='col-3'>
+                <Form.Label> </Form.Label>
+                <Form.Control
+                  type="date"
+                  name="Enddate"
+                  value={education.Enddate}
+                  onChange={(e) => handleChange(index, e)}
+                />
+              </Col>
+              <Col controlId={`city-${index}`}>
+              <FaCity style={{paddingRight:'5px',position:'relative',top:'30px',fontSize:'20px'
+            ,left:'10px',color:'#666'}}  /> 
             <Form.Select
               name="City"
               value={education.City}
+              style={{paddingLeft:'2.5rem'}}
               onChange={(e) => handleChange(index, e)}
             >
-              <option value="">Select...</option>
+              <option value="">Select City...</option>
               {cityData.map(city => (
                 <option key={city.id} value={city.ville}>
                   {city.ville}
                 </option>
               ))}
             </Form.Select>
+              </Col>
+            </Row>
+          </Form.Group>
+          <Form.Group controlId={`description-${index}`}  style={{marginBlockEnd:'10px'}}>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder="Provide a description ...Max 150 words"
+              name="Description"
+              value={education.Description}
+              onChange={(e) => handleChange(index, e)}
+            />
+          </Form.Group>
+         
+          <Form.Group controlId={`city-${index}`}>
+            
           </Form.Group>
         </div>
       ))}
@@ -143,6 +159,7 @@ const Educations = () => {
         ) }
       </Form.Group>
     </Form>
+    </Container>
   );
 };
 
