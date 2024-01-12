@@ -252,4 +252,20 @@
       margin-bottom: 0;
     }
   }
+
+
+  .model-palett{
+    padding:10px 25px;
+    cursor:pointer;
+    margin:5px;
+    border:0;
+    background:var(--color);
+    display:inline-flex;
+    border-radius:10px;
+  }
+   
+
+
+
+
   

@@ -20,7 +20,7 @@ const Service = () => {
 
   return (
 
-        <div>
+        <div style={{backgroundColor:'#FFFFFF'}}>
           <Row className='justify-content-center'>
           <HeadingStyle title="Services" />
           </Row>

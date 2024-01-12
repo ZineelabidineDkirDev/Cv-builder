@@ -63,7 +63,7 @@ const Builder = () => {
   };
 
   return (
-    <Container className="d-flex justify-content-center background-overlay-style">
+    <Container className="d-flex justify-content-center ">
       <Row className='container-fluid model-builder mt-5 '>
         <HeadingStyle title="Build your CV" />
         <Col className='justify-content-center ml-5'>
@@ -74,7 +74,7 @@ const Builder = () => {
             className="mb-3 nav nav-tabs"
             justify
           >
-            <Tab eventKey="profile" className='model-link' title="Contact Information">
+            <Tab eventKey="profile" className='model-link' title="Contact Information" disabled>
               <cv.Profiles />
             </Tab>
             <Tab eventKey="education" className='model-link' id="educations" title="Degrees/Educations" disabled>
