@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import { AiFillExperiment, AiOutlineUser, AiTwotoneProject, AiFillSketchCircle } from 'react-icons/ai'
 import './model.css';
 
-const Content = () => {
+const Content = (props) => {
   // Experiences
   const [expData, setExperienceData] = useState([]);
   useEffect(() => {
@@ -127,7 +127,7 @@ const Content = () => {
     <Col className="main-wrapper">
             
             <section className="section summary-section">
-                <h2 className="section-title "><span className="icon-holder"><AiOutlineUser /></span>Career Profile</h2>
+                <h2 className="section-title "><span className="icon-holder" style={{backgroundColor:props.bgstyle}}><AiOutlineUser /></span>Career Profile</h2>
                 <div className="summary">
                     <p>{profileData.description?profileData.description:'-- Nothing to show'}</p>
                 </div>
@@ -135,7 +135,7 @@ const Content = () => {
             <br />
             
             <Row className="section experiences-section">
-                <h2 className="section-title"><span className="icon-holder"><AiFillExperiment/> </span>Experiences</h2>
+                <h2 className="section-title"><span className="icon-holder" style={{backgroundColor:props.bgstyle}}><AiFillExperiment/> </span>Experiences</h2>
                 {expData?expData.map((exp,id) => (
                 <div className="item" key={id}>
                     <div className="meta">
@@ -172,7 +172,7 @@ const Content = () => {
             </Row>
             
             <Row className="section projects-section">
-                <h2 className="section-title"><span className="icon-holder"><AiTwotoneProject/> </span>Projects</h2>
+                <h2 className="section-title"><span className="icon-holder" style={{backgroundColor:props.bgstyle}}><AiTwotoneProject/> </span>Projects</h2>
                
                 <div className="item">
                     <span className="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/" target="_blank">CoderPro</a></span> - <span className="project-tagline">A responsive website template designed to help developers launch their software projects. </span>
@@ -185,17 +185,17 @@ const Content = () => {
             </Row>
             
             <section className="skills-section section">
-                <h2 className="section-title"><span className="icon-holder"><AiFillSketchCircle/></span>Skills &amp; Proficiency</h2>
+                <h2 className="section-title"><span className="icon-holder" style={{backgroundColor:props.bgstyle}}><AiFillSketchCircle/></span>Skills &amp; Proficiency</h2>
                 <Row className="skillset">        
                     <Col className="item">
-                        <p className="level-title"><b>Python &amp; Django</b></p>
+                        <p className="level-title" style={{backgroundColor:props.bgstyle}}><b>Python &amp; Django</b></p>
                                                     
-                        <p className="level-title"><b>Javascript</b></p>
+                        <p className="level-title" style={{backgroundColor:props.bgstyle}}><b>Javascript</b></p>
                    
-                        <p className="level-title"><b>React &amp; Angular</b></p>
-                        <p className="level-title"><b>React &amp; Angular</b></p>
-                        <p className="level-title"><b>React &amp; Angular</b></p>
-                        <p className="level-title"><b>React &amp; Angular</b></p>
+                        <p className="level-title" style={{backgroundColor:props.bgstyle}}><b>React &amp; Angular</b></p>
+                        <p className="level-title" style={{backgroundColor:props.bgstyle}}><b>React &amp; Angular</b></p>
+                        <p className="level-title" style={{backgroundColor:props.bgstyle}}><b>React &amp; Angular</b></p>
+                        <p className="level-title" style={{backgroundColor:props.bgstyle}}><b>React &amp; Angular</b></p>
                                                    
                     </Col>
                 </Row>  

@@ -8,7 +8,7 @@ function App() {
   
 
   return (
-    <>
+    <div className='background-overlay-style'>
       <Row>
         <cv.CvNavbar />
       </Row>
@@ -25,7 +25,7 @@ function App() {
      </Routes>
    
      <cv.Footer/>
-    </>
+    </div>
     )
 }
 

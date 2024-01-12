@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cv from '../ExportData'
-import { Row, Button } from 'react-bootstrap';
+import { Row, Button, Col } from 'react-bootstrap';
 import { AiOutlinePrinter } from 'react-icons/ai';
 import './model.css';
 import HeadingStyle from '../../extensions/HeadingStyle';
@@ -8,6 +8,7 @@ import html2pdf from 'html2pdf.js';
 
 const ViewCv = () => {
   const [backgroundColor, setBackgroundColor] = useState(''); // Initial color
+  const [showColorPicker, setShowColorPicker] = useState(false);
 
   const handlePrint = () => {
     const cv = document.getElementById('cv-print');
@@ -24,66 +25,71 @@ const ViewCv = () => {
       nameColor: 'Green',
     },
     {
-      color: '#636c54',
+      color: '#000000',
+      nameColor: 'Black',
+    },
+    {
+      color: '#6dbac0',
+      nameColor: 'Blue',
+    },
+    {
+      color: '#6b003a',
       nameColor: 'Blue',
     },
   ];
 
-  const handleColorSwitch = () => {
-    const newColor = deriveColor(backgroundColor);
+  const handleColorSwitch = (newColor) => {
     setBackgroundColor(newColor);
-  };
-
-  const deriveColor = (baseColor) => {
-    const currentIndex = palett.findIndex((color) => color.color === baseColor);
-    return palett[(currentIndex+1) % palett.length].color;
   };
 
   return (
     <div>
       <HeadingStyle title="View CV" />
       <Row>
-        <h2 className="display-6 text-uppercase text-center">Palette Color</h2>
+        <h2 className="display-6 text-uppercase text-center">Choose Color of your CV</h2>
       </Row>
       <Row className="justify-content-center">
-        <div className='d-flex'
-          style={{
-            backgroundColor,
-            padding: '20px',
-            textAlign: 'center',
-            width: '50px',
-            marginTop: '10px',
-            marginBottom: '130px',
-            height: '30px',
-          }}
+        <div
+          className='d-flex justify-content-center'
         >
-          <p>Background Color: {backgroundColor}</p>
           {palett.map((color, id) => (
             <div key={id}>
-                <input type="color"  name="" onClick={handleColorSwitch} value={color.color} id="" />
+              <button
+              className='model-palett'
+              style={{backgroundColor:color.color}}
+                name=""
+                onClick={(e) => handleColorSwitch(color.color)}
+                value={color.color}
+                id=""
+              />
             </div>
           ))}
         </div>
       </Row>
-      <div>
+      <Row>
+        <Col></Col>
+        <Col md={2}>
         <Button
           variant="outline-dark"
           type="button"
           onClick={handlePrint}
-          className="btn btn-outline-dark border-dark rounded-5 d-flex align-items-center justify-content-center"
+          className="btn btn-outline-dark border-dark rounded-5 d-flex
+          justify-content-center"
           style={{
             marginTop: '20px',
-            marginLeft: '45%',
             marginBottom: '55px',
+            width:'250px',
             padding: '10px 30px',
             textTransform: 'uppercase',
           }}
         >
           <AiOutlinePrinter style={{ fontSize: '22px' }} /> &ensp;Print your Cv
         </Button>
-      </div>
+        </Col>
+        <Col></Col>
+      </Row>
       <Row className="wrapper" id="cv-print">
-        <cv.Content />
+        <cv.Content bgstyle={backgroundColor}/>
         <cv.SideBar bgstyle={backgroundColor}/>
       </Row>
     </div>

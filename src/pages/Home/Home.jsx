@@ -54,10 +54,6 @@ const Home = () => {
 
       <Service />
 
-      {/* Scrolling text */}
-      <div className="scrolling-text">
-        <p>Scrolling text goes here. Customize as needed.</p>
-      </div>
     </div>
   );
 }
