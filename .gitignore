@@ -1,4 +1,6 @@
 node_modules
+<<<<<<< HEAD
+=======
 # Ignore node_modules directory
 /node_modules
 
@@ -31,3 +33,4 @@ npm-debug.log*
 # Ignore node.js binary
 node_modules/
 .vercel
+>>>>>>> origin/Dev
