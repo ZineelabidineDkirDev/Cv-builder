@@ -15,13 +15,8 @@ const Language = () => {
       'Spanish',
       'German',
       'Italian',
-<<<<<<< HEAD
       'Chinese',
-    ];
-=======
-      'Chinese'
-    ]
->>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
+    ];    
   });
 
   const handleSelectChange = (event) => {

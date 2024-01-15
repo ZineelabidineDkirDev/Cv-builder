@@ -15,11 +15,8 @@ import Language from "./Sections/Language";
 import Profiles from "./Sections/Profiles";
 import References from "./Sections/References";
 import Skills from "./Sections/Skills";
-<<<<<<< HEAD
-=======
 import Login from "../pages/Auth/login";
 import Signup from "../pages/Auth/Signup";
->>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
 
 export default {
     Home,
@@ -38,12 +35,7 @@ export default {
     CityLoader,
     Template,
     SideBar,
-<<<<<<< HEAD
-    Content
-
-=======
     Content,
     Login,
     Signup
->>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
-}
+};
