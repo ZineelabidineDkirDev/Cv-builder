@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
 import { Carousel, Nav, Button, Row } from 'react-bootstrap';
 import Slider from './Slider';
 import Cards from '../Service/Cards';
@@ -9,6 +13,10 @@ import ImageA from '../../assets/io.png'
 import './Home.css';
 
 const Home = () => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
   const imageSlider1 = 'https://img.freepik.com/free-vector/gradient-blur-pink-blue-abstract-background_53876-117324.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704672000&semt=sph';
   const imageSlider2 = 'https://img.freepik.com/premium-photo/blurred-abstract-gradient-background-with-noise-textur_391867-3.jpg';
   const imageSlider3 = 'https://img.freepik.com/premium-photo/blue-background-with-purple-background-purple-background-with-white-circle-word-cloud_786688-5322.jpg';
@@ -53,7 +61,10 @@ const Home = () => {
       </Carousel>
 
       <Service />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
     </div>
   );
 }
