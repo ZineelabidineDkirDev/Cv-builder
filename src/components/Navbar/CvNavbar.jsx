@@ -6,12 +6,12 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const CvNavbar = () => {
 
-  const [username,setUsername]=useState('');
+  const [usernameObj,setUsernameObj]=useState([]);
   const [Display,setDisplay]=useState('none')
   const [on,setON]=useState(false)
 
   useEffect(()=>{
-    setUsername(localStorage.getItem("connected"))
+    setUsernameObj(JSON.parse(localStorage.getItem("connected")))
   },[localStorage.getItem("connected")])
 
   const showlogout=()=>{
@@ -43,7 +43,7 @@ const CvNavbar = () => {
               <Nav.Link href="/builder" className='text-light'>Build CV Now</Nav.Link>  
             </Button> 
             <Button variant="white" style={{color:"black"}} onClick={showlogout}>
-              {username} {" "}
+              welcome {usernameObj[2]} {" "}
             </Button>
               <Button
                style={{display:Display,padding:"3px",margin:0,fontSize:'13px',background:"#1b227a",border:0}}

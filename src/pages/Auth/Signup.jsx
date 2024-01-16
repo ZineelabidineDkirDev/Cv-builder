@@ -49,9 +49,13 @@ const Signup =()=>{
         }
     }
 
+    const obj =[email,password,username];
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem(email,password,username)
+        localStorage.setItem("connected", JSON.stringify(obj));
+        
+        //localStorage.setItem("connected",)
         navigate('/login')
       };
 
