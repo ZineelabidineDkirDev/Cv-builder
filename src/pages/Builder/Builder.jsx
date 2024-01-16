@@ -35,7 +35,7 @@ const Builder = () => {
     };
     if (isLastTab) {
       // Use Link to navigate to ViewCv
-      Navigatee("/contact")
+      Navigatee("/viewcv")
     }
 
     

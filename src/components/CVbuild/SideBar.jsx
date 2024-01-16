@@ -58,7 +58,13 @@ const SideBar = (props) => {
   //     console.error("References Data:", referencesData);
   //     return null; // or handle the error in some other way
   //   }
- 
+ // Profiles
+    const [profileData, setProfileData] = useState([]);
+    useEffect(() => {
+    const storeProfileData = JSON.parse(localStorage.getItem("profileData")) || [];
+    setProfileData(storeProfileData);
+    console.log("Profile Data", storeProfileData);
+    }, []);
     
     
    return (
@@ -152,12 +158,15 @@ const SideBar = (props) => {
        
     //  </Card>
     <Col className="sidebar-wrapper" style={{background:props.bgstyle}}>
+
             <Row className="profile-container">
-                <img className="profile-img" src="https://i.ibb.co/ZTysrZN/profile.png" alt="" />
-                <h1 className="name">Alan Doe</h1>
+               
+                <img className="profile-img" src={profileData.imgProfile} alt="" />
+                <h1 className="name">{profileData.nom} {profileData.prenom}</h1>
                 <h3 className="tagline">Full Stack Developer</h3>
+                
             </Row>
-            
+
             <Row className="contact-container container-block">
                 <ul className="list-unstyled contact-list">
                     <li className="email"><AiOutlineMail/> <a href="mailto: yourname@email.com">alan@website.com</a></li>

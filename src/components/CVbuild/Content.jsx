@@ -129,7 +129,7 @@ const Content = (props) => {
             <section className="section summary-section">
                 <h2 className="section-title "><span className="icon-holder" style={{backgroundColor:props.bgstyle}}><AiOutlineUser /></span>Career Profile</h2>
                 <div className="summary">
-                    <p>{profileData.description?profileData.description:'-- Nothing to show'}</p>
+                    <p className='flex text-break '>{profileData.description?profileData.description:'-- Nothing to show'}</p>
                 </div>
             </section>
             <br />
@@ -146,7 +146,7 @@ const Content = (props) => {
                         <div className="company">Startup Hubs, San Francisco</div>
                     </div>
                     <div className="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        <p className='flex text-break'>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                            Aenean commodo ligula eget dolor. Aenean massa. 
                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
                            </p>  
@@ -162,7 +162,7 @@ const Content = (props) => {
                         <div className="company">Google, London</div>
                     </div>
                     <div className="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                        <p className='flex text-break'>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
                           Aenean commodo ligula eget dolor. Aenean massa. 
                           Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>  
                         

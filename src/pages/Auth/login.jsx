@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./login.css"
 import { useNavigate } from "react-router-dom";
 import { Form,Button } from "react-bootstrap";
@@ -6,6 +6,7 @@ const Login =()=>{
     const navigate = useNavigate()
     const [email,setEmail]= useState('');
     const [password,setPassword]= useState('');
+    const [username, setUsername] = useState('');
     const [isValidEmail, setIsValidEmail] = useState(false);
     const [emailBorder,setEmailBorder]= useState('');
     const [isValidPassword, setIsValidPassword] = useState(false);
@@ -38,11 +39,22 @@ const Login =()=>{
         }
         setPassword(e.target.value)
     }
+     
+    
+    useEffect(() => {
+        const storedUsername = localStorage.getItem('username') || '';
+        const storedPassword = localStorage.getItem('password') || '';
+        setUsername(storedUsername);
+        setPassword(storedPassword);
+      }, []);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+    e.preventDefault();
+
+
+
         if(localStorage.getItem(email)==password){
-            localStorage.setItem('connected',email);
+            localStorage.setItem('connected',setUsername(localStorage.getItem('userename')));
             navigate('/')
             window.location.reload();
         }
@@ -51,10 +63,12 @@ const Login =()=>{
         }
       };
 
+      
+
     return(
         <div className="loginPage">
             <Form onSubmit={handleSubmit}>
-                <h1 className="title">Log in to your account</h1>
+                <h1 className="title">Log in to your account {username}</h1>
                 <Form.Group className="mb-3">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name="email" placeholder="Enter email" style={{boxShadow:emailBorder,width: '400px'}} value={email} onChange={handleEmail}/>
