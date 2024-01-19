@@ -57,7 +57,6 @@ const Profiles = () => {
     && validation.description ==='' && validation.imgProfile ==='')
     {
       let modelValidate = setValidation(validation)
-      console.log(modelValidate);
     }
   };
 
@@ -73,13 +72,11 @@ const Profiles = () => {
   useEffect(() => {
     const jsonData = JSON.stringify(formData);
     localStorage.setItem('profileData', jsonData);
-    console.log('JSON Data:', jsonData);
   }, [formData]);
 
 
   // save data inside json file using fs node js module
   // useEffect(() => {
-  //   console.log('Updated src:', src);
   // }, [src]);
   // const clickme = () => {
   //   const storedValue = JSON.parse(localStorage.getItem('profileData'));

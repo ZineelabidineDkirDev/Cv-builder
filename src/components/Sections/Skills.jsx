@@ -77,10 +77,6 @@ const Skills = () => {
   // Function to save data to local storage
   const saveDataToLocalStorage = (data) => {
     localStorage.setItem('skills_data', JSON.stringify(data));
-    setTimeout(() => {
-      
-      console.log(localStorage.getItem('skills_data'))
-    }, 5000);
   };
 
   return (

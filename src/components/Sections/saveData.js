@@ -10,5 +10,4 @@ export function saveJson(fileName = '', json = {}) {
     fs.writeFileSync(fileName, JSON.stringify(json, null, 2));
 }
 
-// console.log(readJson(filee).toString())
 

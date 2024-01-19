@@ -82,9 +82,6 @@ const Language = () => {
   // Function to save data to local storage
   const saveDataToLocalStorage = (data) => {
     localStorage.setItem('language_data', JSON.stringify(data));
-    setTimeout(() => {
-      console.log(localStorage.getItem('language_data'))
-    }, 2000);
   };
 
   return (
