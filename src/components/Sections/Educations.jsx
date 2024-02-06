@@ -2,10 +2,10 @@ import React from 'react'
 import {Row,Form, Button , Col, Container } from 'react-bootstrap'
 import { FaPhoneAlt, FaHome , FaPlus , FaMinus , FaSchool , FaCity , FaCalendar , FaBook, FaFile } from "react-icons/fa";
 import { useState } from 'react';
-import { useEffect } from 'react';
+import { useEffect ,useReducer } from 'react';
 import cityData from '../../CityLoader/CityData.json';
 import './Education.css'
-
+import { createContext } from 'react';
 
 const Educations = () => {
  
@@ -30,11 +30,12 @@ const Educations = () => {
     setEducationData(storedData);
   }, []);
 
-  const handleChange = (index, e) => {
+  const handleChange = ( index , e) => {
     const { name, value } = e.target;
-    const updatedData = [...educationData];
-    updatedData[index][name] = value;
-    setEducationData(updatedData);
+    const updateData = [...educationData]
+    updateData [index][name] = value
+    setEducationData(updateData)
+
   };
 
   const handleAddEducation = () => {
@@ -47,10 +48,11 @@ const Educations = () => {
     setShowGoToFirstButton(false);
   };
 
-
+  
   
   return (
     <Container>
+      
     <Form>
       {educationData.map((education, index) => (
      <div key={index} className={`fade-in ${education.fadeIn ? 'active' : ''}  ` } style={{  marginTop:'25px' , borderBlockEnd:'1.5px solid black ', paddingBottom:'20px' }} >
@@ -65,7 +67,7 @@ const Educations = () => {
               style={{paddingLeft:'2.5rem'}}
               placeholder="Degree"
               value={education.Degree}
-              onChange={(e) => handleChange(index, e)}
+              onChange={(e) => handleChange( index , e)}
             />
           </Form.Group>
           </Col>
@@ -159,6 +161,7 @@ const Educations = () => {
         ) }
       </Form.Group>
     </Form>
+   
     </Container>
   );
 };
