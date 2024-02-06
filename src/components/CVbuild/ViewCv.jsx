@@ -15,7 +15,6 @@ const ViewCv = () => {
     html2pdf().from(cv).save();
   };
 
-
   const palett = [
     {
       color: '#8747f6',
@@ -86,7 +85,6 @@ const ViewCv = () => {
         >
           <AiOutlinePrinter style={{ fontSize: '22px' }} /> &ensp;Print your Cv
         </Button>
-      
         </Col>
         <Col></Col>
       </Row>

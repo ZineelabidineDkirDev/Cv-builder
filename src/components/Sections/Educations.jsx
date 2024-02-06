@@ -15,7 +15,8 @@ const Educations = () => {
     Enddate: '',
     Description: '',
     Etablissment: '',
-    City: ''
+    City: '',
+
   };
 
   const [educationData, setEducationData] = useState([initialEducationData]);

@@ -5,6 +5,7 @@ import { Form,Button } from "react-bootstrap";
 const Login =()=>{
     const navigate = useNavigate()
     const [email,setEmail]= useState('');
+    const [username,setUsername]= useState('');
     const [password,setPassword]= useState('');
     const [isValidEmail, setIsValidEmail] = useState(false);
     const [emailBorder,setEmailBorder]= useState('');
@@ -42,7 +43,7 @@ const Login =()=>{
     const handleSubmit = (e) => {
         e.preventDefault();
         if(localStorage.getItem(email)==password){
-            localStorage.setItem('connected',email);
+            localStorage.setItem('connected',localStorage.getItem('data'));
             navigate('/')
             window.location.reload();
         }

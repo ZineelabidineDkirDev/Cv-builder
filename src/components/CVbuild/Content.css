@@ -12,6 +12,10 @@
     height:100%;
     border-radius: 10px;
     margin-top: 20px;
+<<<<<<< HEAD
+     /* Subtle shadow for depth */
+=======
+>>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
   }
 
   .sidebar-body.card-body  {
@@ -211,10 +215,18 @@
       }
   }
   
+<<<<<<< HEAD
+
+  .sidebar-card .clicked {
+    background-color: #f0f0f0 !important; /* Change to your desired background color */
+    color: #333; /* Change to your desired font color */
+  }
+=======
 .sidebar-card .clicked {
   background-color: #f0f0f0 !important; /* Change to your desired background color */
   color: #333; /* Change to your desired font color */
 }
+>>>>>>> 33fa63cd1b5979dea20ec8dbbd55c3b5cb7b9ef2
   
   .content-card.clicked {
     background-color: #f0f0f0; /* Change to your desired background color */

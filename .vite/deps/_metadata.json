@@ -1,4 +1,12 @@
 {
+<<<<<<< HEAD
+  "hash": "656214a4",
+  "configHash": "eb3b0baf",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "56cc8461",
+  "optimized": {},
+  "chunks": {}
+=======
   "hash": "f73ed5b2",
   "configHash": "eb3b0baf",
   "lockfileHash": "1d62d291",
@@ -94,4 +102,5 @@
       "file": "chunk-CEQRFMJQ.js"
     }
   }
+>>>>>>> origin/Dev
 }

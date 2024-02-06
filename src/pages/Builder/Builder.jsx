@@ -8,7 +8,8 @@ import HeadingStyle from '../../extensions/HeadingStyle';
 
 
 const Builder = () => {
-  const Navigate = useNavigate()
+  const Navigatee = useNavigate()
+
   const [activeTab, setActiveTab] = useState('profile');
 
   const handleTabSelect = (selectedTab) => {
@@ -30,14 +31,13 @@ const Builder = () => {
       case 'skills':
         break;
       default:
-        
-        
-      
-        
+
     };
     if (isLastTab) {
-      Navigate("/contact")
+      // Use Link to navigate to ViewCv
+      Navigatee("/viewcv")
     }
+
     
 
     // Switch to the next tab

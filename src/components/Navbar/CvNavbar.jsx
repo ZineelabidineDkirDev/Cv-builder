@@ -4,13 +4,14 @@ import './Navbar.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-
 const CvNavbar = () => {
-  const [email,setEmail]=useState('');
+
+  const [usernameObj,setUsernameObj]=useState([]);
   const [Display,setDisplay]=useState('none')
   const [on,setON]=useState(false)
+
   useEffect(()=>{
-    setEmail(localStorage.getItem("connected"))
+    setUsernameObj(JSON.parse(localStorage.getItem("connected")))
   },[localStorage.getItem("connected")])
 
   const showlogout=()=>{
@@ -35,18 +36,21 @@ const CvNavbar = () => {
           <Nav className="me-auto">
             <Nav.Link className='text-dark' href="/">Home</Nav.Link>
             <Nav.Link className='text-dark' href="/service">Service</Nav.Link>
-            <Nav.Link className='text-dark' href="/contact">View CV</Nav.Link>
+            <Nav.Link className='text-dark' href="/viewcv">View CV</Nav.Link>
           </Nav>
           <Nav className='me'>
-            <Button variant="white" style={{color:"black"}} onClick={showlogout}>
-              {email} {" "}
-            </Button>
-              <Button style={{display:Display,padding:"3px",margin:0,fontSize:'13px',background:"#1b227a",border:0}} onClick={logout}>
-                <a href='/' style={{textDecoration:"none",color:"white"}}>Log out</a>
-              </Button>
             <Button variant="dark" className='rounded-5 hover-text-dark px-4 py-0'>
               <Nav.Link href="/builder" className='text-light'>Build CV Now</Nav.Link>  
             </Button> 
+            <Button variant="white" style={{color:"black"}} onClick={showlogout}>
+              welcome {usernameObj[2]} {" "}
+            </Button>
+              <Button
+               style={{display:Display,padding:"3px",margin:0,fontSize:'13px',background:"#1b227a",border:0}}
+                onClick={logout}>
+                <a href='/' style={{textDecoration:"none",color:"white"}}>Log out</a>
+              </Button>
+           
             
           </Nav>
         </Navbar.Collapse>

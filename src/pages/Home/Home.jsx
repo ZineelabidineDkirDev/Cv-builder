@@ -9,7 +9,6 @@ import ImageA from '../../assets/io.png'
 import './Home.css';
 
 const Home = () => {
-
   const imageSlider1 = 'https://img.freepik.com/free-vector/gradient-blur-pink-blue-abstract-background_53876-117324.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704672000&semt=sph';
   const imageSlider2 = 'https://img.freepik.com/premium-photo/blurred-abstract-gradient-background-with-noise-textur_391867-3.jpg';
   const imageSlider3 = 'https://img.freepik.com/premium-photo/blue-background-with-purple-background-purple-background-with-white-circle-word-cloud_786688-5322.jpg';

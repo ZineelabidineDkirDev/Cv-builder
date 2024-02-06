@@ -15,8 +15,8 @@ const Language = () => {
       'Spanish',
       'German',
       'Italian',
-      'Chinese'
-    ]
+      'Chinese',
+    ];    
   });
 
   const handleSelectChange = (event) => {

@@ -17,6 +17,8 @@ import References from "./Sections/References";
 import Skills from "./Sections/Skills";
 import Login from "../pages/Auth/login";
 import Signup from "../pages/Auth/Signup";
+import ViewCv from "./CVbuild/ViewCv";
+
 
 export default {
     Home,
@@ -37,5 +39,6 @@ export default {
     SideBar,
     Content,
     Login,
-    Signup
-}
+    Signup,
+    ViewCv
+};
